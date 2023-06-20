@@ -5,7 +5,10 @@
 #  Read the file to see which settings you can override
 
 set -e
-command -v mono >/dev/null 2>&1 || { echo >&2 "The OpenRA mod SDK requires mono."; exit 1; }
+if ! command -v mono >/dev/null 2>&1; then
+	command -v dotnet >/dev/null 2>&1 || { echo >&2 "The OpenRA mod SDK requires dotnet or mono."; exit 1; }
+fi
+
 if command -v python3 >/dev/null 2>&1; then
 	PYTHON="python3"
 else
@@ -39,6 +42,12 @@ fi
 
 require_variables "MOD_ID" "ENGINE_VERSION" "ENGINE_DIRECTORY"
 
+if command -v mono >/dev/null 2>&1 && [ "$(grep -c .NETCoreApp,Version= ${ENGINE_DIRECTORY}/bin/OpenRA.Server.dll)" = "0" ]; then
+	RUNTIME_LAUNCHER="mono --debug"
+else
+	RUNTIME_LAUNCHER="dotnet"
+fi
+
 NAME="${Name:-"Dedicated Server"}"
 LAUNCH_MOD="${Mod:-"${MOD_ID}"}"
 LISTEN_PORT="${ListenPort:-"1234"}"
@@ -55,10 +64,14 @@ ENABLE_SYNC_REPORTS="${EnableSyncReports:-"False"}"
 ENABLE_GEOIP="${EnableGeoIP:-"True"}"
 SHARE_ANONYMISED_IPS="${ShareAnonymizedIPs:-"True"}"
 
+JOIN_CHAT_DELAY="${JoinChatDelay:-"5000"}"
+
+QUERY_MAP_REPOSITORY="${QueryMapRepository:-"True"}"
+
 SUPPORT_DIR="${SupportDir:-""}"
 
 cd "${TEMPLATE_ROOT}"
-if [ ! -f "${ENGINE_DIRECTORY}/bin/OpenRA.exe" ] || [ "$(cat "${ENGINE_DIRECTORY}/VERSION")" != "${ENGINE_VERSION}" ]; then
+if [ ! -f "${ENGINE_DIRECTORY}/bin/OpenRA.Server.dll" ] || [ "$(cat "${ENGINE_DIRECTORY}/VERSION")" != "${ENGINE_VERSION}" ]; then
 	echo "Required engine files not found."
 	echo "Run \`make\` in the mod directory to fetch and build the required files, then try again.";
 	exit 1
@@ -67,7 +80,7 @@ fi
 cd "${ENGINE_DIRECTORY}"
 
 while true; do
-     MOD_SEARCH_PATHS="${MOD_SEARCH_PATHS}" mono --debug bin/OpenRA.Server.exe Engine.EngineDir=".." Game.Mod="${LAUNCH_MOD}" \
+     MOD_SEARCH_PATHS="${MOD_SEARCH_PATHS}" ${RUNTIME_LAUNCHER} bin/OpenRA.Server.dll Engine.EngineDir=".." Game.Mod="${LAUNCH_MOD}" \
      Server.Name="${NAME}" Server.ListenPort="${LISTEN_PORT}" \
      Server.AdvertiseOnline="${ADVERTISE_ONLINE}" \
      Server.Password="${PASSWORD}" \
@@ -79,5 +92,7 @@ while true; do
      Server.EnableSyncReports="${ENABLE_SYNC_REPORTS}" \
      Server.EnableGeoIP="${ENABLE_GEOIP}" \
      Server.ShareAnonymizedIPs="${SHARE_ANONYMISED_IPS}" \
+     Server.JoinChatDelay="${JOIN_CHAT_DELAY}" \
+     Server.QueryMapRepository="${QUERY_MAP_REPOSITORY}" \
      Engine.SupportDir="${SUPPORT_DIR}"
 done
