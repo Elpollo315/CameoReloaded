@@ -1507,20 +1507,19 @@ reac:
 
 proc.scrin:
 	Inherits: ^StructureOverlays
-	idle: procscrin
-		Offset: -2,0
-	damaged-idle: procscrin
-		Start: 1
-		Offset: -2,0
-	make: procscrinmake
-		Length: *
-		Tick: 80
-		Offset: -2,0
-	bib: bib2
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+	idle: modscrin_refin
+		Start: 12
+		Length: 10
+		Tick: 160
+		Scale: 1.0
+	damaged-idle: modscrin_refin
+		Start: 12
+		Length: 10
+		Tick: 90
+		Scale: 1.0
+	make: modscrin_refin
+		Length: 10
+		Scale: 1.0
 	icon: procscrinicon
 
 port:
@@ -1590,68 +1589,68 @@ grav:
 
 nerv:
 	Inherits: ^StructureOverlays
-	idle: nerv
-	damaged-idle: nerv
-		Start: 1
-	make: nervmake
-		Length: *
-		Tick: 80
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+	idle: modscrin_nerv
+		Start: 12
+		Length: 10
+		Tick: 160
+		Scale: 1.1
+	damaged-idle: modscrin_nerv
+		Start: 12
+		Length: 10
+		Tick: 90
+		Scale: 1.1
+	make: modscrin_nerv
+		Length: 10
+		Scale: 1.1
 	icon: nervicon
 
 srep:
 	Inherits: ^StructureOverlays
-	idle: srep
-		Offset: 0,4
-		ZOffset: -1c511
-	damaged-idle: srep
-		Start: 10
-		Offset: 0,4
-		ZOffset: -1c511
-	active: srep
+	idle: modscrin_repair
+		Start: 12
 		Length: 10
-		Offset: 0,4
-		Tick: 80
+		Tick: 160
+		Scale: 1.0
 		ZOffset: -1c511
-	damaged-active: srep
+	damaged-idle: modscrin_repair
+		Start: 12
 		Length: 10
-		Start: 10
-		Offset: 0,4
-		Tick: 80
+		Tick: 90
+		Scale: 1.0
 		ZOffset: -1c511
-	make: srepmake
-		Length: *
-		Offset: 0,4
-		Tick: 80
-	bib: mbFIX
-		Length: *
+	make: modscrin_repair
+		Length: 10
+		Scale: 1.0
 		ZOffset: -1c511
-		Offset: 0,-4
-		UseTilesetExtension: true
-		TilesetOverrides:
-			BARREN: TEMPERAT
+	active: modscrin_repair
+		Start: 12
+		Length: 10
+		Tick: 50
+		Scale: 1.0
+		ZOffset: -1c511
+	damaged-active: modscrin_repair
+		Start: 12
+		Length: 10
+		Tick: 50
+		Scale: 1.0
+		ZOffset: -1c511
 	icon: srepicon
 
 rea2:
 	Inherits: ^StructureOverlays
-	idle: rea2
-		Offset: 2,0
-	damaged-idle: rea2
-		Start: 1
-		Offset: 2,0
-	make: rea2make
-		Length: *
-		Offset: 2,0
-		Tick: 80
-	bib: bib2
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+	idle: modscrin_power2
+		Start: 12
+		Length: 10
+		Tick: 160
+		Scale: 1.2
+	damaged-idle: modscrin_power2
+		Start: 12
+		Length: 10
+		Tick: 90
+		Scale: 1.2
+	make: modscrin_power2
+		Length: 10
+		Scale: 1.2
 	icon: rea2icon
 
 scrt:
@@ -1674,27 +1673,27 @@ scrt:
 
 silo.scrin:
 	Inherits: ^StructureOverlays
-	idle: siloscrin
+	idle: modscrin_silo
+		Start: 12
+		Length: 10
+		Tick: 160
+		Scale: 1.0
+	damaged-idle: modscrin_silo
+		Start: 12
+		Length: 10
+		Tick: 90
+		Scale: 1.0
+	make: modscrin_silo
+		Length: 10
+		Scale: 1.0
+	stages: modscrin_silo_top
+		Length: 22
 		Offset: 0,-1
-	damaged-idle: siloscrin
+		Scale: 1.0
+	damaged-stages: modscrin_silo_top
+		Length: 22
 		Offset: 0,-1
-		Start: 5
-	stages: siloscrin
-		Length: 5
-		Offset: 0,-1
-	damaged-stages: siloscrin
-		Start: 5
-		Length: 5
-		Offset: 0,-1
-	make: siloscrinmake
-		Length: *
-		Offset: 0,-1
-	bib: mbSILO
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-			BARREN: TEMPERAT
+		Scale: 1.0
 	icon: siloscrinicon
 
 sign:
@@ -1755,49 +1754,56 @@ rift:
 
 ptur:
 	Inherits: ^StructureOverlays
-	idle: ptur
-		Facings: 32
-		UseClassicFacings: True
-		Offset: 1,-6
-	make: pturmake
-		Length: *
-		Offset: 1,-6
-	damaged-idle: ptur
-		Start: 32
-		Facings: 32
-		UseClassicFacings: True
-		Offset: 1,-6
+	idle: modscrin_turret
+		Start: 15
+		Tick: 160
+		Scale: 1.0
+	damaged-idle: modscrin_turret
+		Start: 12
+		Tick: 90
+		Scale: 1.0
+	make: modscrin_turret
+		Length: 10
+		Scale: 1.0
 	muzzle: scrinmuzz1
 		Length: 4
 		Facings: 8
 		Tick: 80
-	bib: mbGUN
-		Length: *
-		Offset: -1,-1
-		UseTilesetExtension: true
-		TilesetOverrides:
-			BARREN: TEMPERAT
+	turret: modscrin_turret_top
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 0.8
+	damaged-turret: modscrin_turret_top
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 0.8
 	icon: pturicon
 
 shar:
 	Inherits: ^StructureOverlays
-	idle: shar
+	idle: modscrin_turret2
+		Start: 15
+		Tick: 160
+		Scale: 1.0
+	damaged-idle: modscrin_turret2
+		Start: 12
+		Tick: 90
+		Scale: 1.0
+	make: modscrin_turret2
+		Length: 10
+		Scale: 1.0
+	muzzle: scrinmuzz1
+		Length: 4
+		Facings: 8
+		Tick: 80
+	turret: modscrin_turret2_top
 		Facings: 32
 		UseClassicFacings: True
-		Offset: 1,-11
-	make: sharmake
-		Length: *
-		Offset: 1,-11
-	damaged-idle: shar
-		Start: 32
+		Scale: 0.8
+	damaged-turret: modscrin_turret2_top
 		Facings: 32
 		UseClassicFacings: True
-		Offset: 1,-11
-	bib: mbTSLA
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			BARREN: TEMPERAT
+		Scale: 0.8
 	icon: sharicon
 
 scol:

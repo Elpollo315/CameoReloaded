@@ -18,6 +18,8 @@
 		Tick: 200
 		BlendMode: Alpha
 		Offset: 0, 0
+	bib:
+		Scale: 1.0
 
 fcom:
 	Inherits: ^StructureOverlays

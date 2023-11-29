@@ -90,6 +90,13 @@ Terrain:
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
 		Color: CE8C42
+	TerrainType@Subterranean:
+		Type: Subterranean
+		Color: 745537
+	TerrainType@Jumpjet:
+		Type: Jumpjet
+		Color: C7C9FA
+
 Templates:
 	Template@255:
 		Id: 255
@@ -1396,7 +1403,7 @@ Templates:
 			3: Rock
 	Template@59:
 		Id: 59
-		Images: wc01.tem
+		Images: wc01_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1406,7 +1413,7 @@ Templates:
 			3: Rock
 	Template@60:
 		Id: 60
-		Images: wc02.tem
+		Images: wc02_tem.shp
 		Size: 2,3
 		Categories: Water Cliffs
 		Tiles:
@@ -1418,7 +1425,7 @@ Templates:
 			5: Rock
 	Template@61:
 		Id: 61
-		Images: wc03.tem
+		Images: wc03_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1428,7 +1435,7 @@ Templates:
 			3: Rock
 	Template@62:
 		Id: 62
-		Images: wc04.tem
+		Images: wc04_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1438,7 +1445,7 @@ Templates:
 			3: Rock
 	Template@63:
 		Id: 63
-		Images: wc05.tem
+		Images: wc05_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1448,7 +1455,8 @@ Templates:
 			3: Rock
 	Template@64:
 		Id: 64
-		Images: wc06.tem
+		Images: wc06_tem.shp
+		Frames: 0, 1, 2, 3, 4, 4
 		Size: 2,3
 		Categories: Water Cliffs
 		Tiles:
@@ -1459,7 +1467,7 @@ Templates:
 			4: Rock
 	Template@65:
 		Id: 65
-		Images: wc07.tem
+		Images: wc07_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1469,7 +1477,7 @@ Templates:
 			3: Rock
 	Template@66:
 		Id: 66
-		Images: wc08.tem
+		Images: wc08_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1479,7 +1487,7 @@ Templates:
 			3: Rock
 	Template@67:
 		Id: 67
-		Images: wc09.tem
+		Images: wc09_tem.shp
 		Size: 3,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1491,7 +1499,7 @@ Templates:
 			5: Rock
 	Template@68:
 		Id: 68
-		Images: wc10.tem
+		Images: wc10_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1501,7 +1509,7 @@ Templates:
 			3: Rock
 	Template@69:
 		Id: 69
-		Images: wc11.tem
+		Images: wc11_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1511,7 +1519,7 @@ Templates:
 			3: Rock
 	Template@70:
 		Id: 70
-		Images: wc12.tem
+		Images: wc12_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1521,7 +1529,7 @@ Templates:
 			3: Rock
 	Template@71:
 		Id: 71
-		Images: wc13.tem
+		Images: wc13_tem.shp
 		Size: 3,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1533,7 +1541,7 @@ Templates:
 			5: Clear
 	Template@72:
 		Id: 72
-		Images: wc14.tem
+		Images: wc14_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1543,7 +1551,7 @@ Templates:
 			3: Beach
 	Template@73:
 		Id: 73
-		Images: wc15.tem
+		Images: wc15_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1553,7 +1561,7 @@ Templates:
 			3: Rock
 	Template@74:
 		Id: 74
-		Images: wc16.tem
+		Images: wc16_tem.shp
 		Size: 2,3
 		Categories: Water Cliffs
 		Tiles:
@@ -1563,7 +1571,7 @@ Templates:
 			5: Rock
 	Template@75:
 		Id: 75
-		Images: wc17.tem
+		Images: wc17_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1573,7 +1581,7 @@ Templates:
 			3: Rock
 	Template@76:
 		Id: 76
-		Images: wc18.tem
+		Images: wc18_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1583,7 +1591,7 @@ Templates:
 			3: Rock
 	Template@77:
 		Id: 77
-		Images: wc19.tem
+		Images: wc19_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1593,7 +1601,7 @@ Templates:
 			3: Rock
 	Template@78:
 		Id: 78
-		Images: wc20.tem
+		Images: wc20_tem.shp
 		Size: 2,3
 		Categories: Water Cliffs
 		Tiles:
@@ -1604,7 +1612,7 @@ Templates:
 			5: Rough
 	Template@79:
 		Id: 79
-		Images: wc21.tem
+		Images: wc21_tem.shp
 		Size: 1,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1612,7 +1620,7 @@ Templates:
 			1: Rock
 	Template@80:
 		Id: 80
-		Images: wc22.tem
+		Images: wc22_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1622,7 +1630,7 @@ Templates:
 			3: Rock
 	Template@81:
 		Id: 81
-		Images: wc23.tem
+		Images: wc23_tem.shp
 		Size: 3,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1634,7 +1642,7 @@ Templates:
 			5: Water
 	Template@82:
 		Id: 82
-		Images: wc24.tem
+		Images: wc24_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1644,7 +1652,7 @@ Templates:
 			3: Rock
 	Template@83:
 		Id: 83
-		Images: wc25.tem
+		Images: wc25_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1654,7 +1662,7 @@ Templates:
 			3: Rock
 	Template@84:
 		Id: 84
-		Images: wc26.tem
+		Images: wc26_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1664,7 +1672,7 @@ Templates:
 			3: Rock
 	Template@85:
 		Id: 85
-		Images: wc27.tem
+		Images: wc27_tem.shp
 		Size: 3,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1676,7 +1684,7 @@ Templates:
 			5: Rock
 	Template@86:
 		Id: 86
-		Images: wc28.tem
+		Images: wc28_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1685,7 +1693,7 @@ Templates:
 			3: Rock
 	Template@87:
 		Id: 87
-		Images: wc29.tem
+		Images: wc29_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1695,7 +1703,7 @@ Templates:
 			3: Rock
 	Template@88:
 		Id: 88
-		Images: wc30.tem
+		Images: wc30_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1705,7 +1713,7 @@ Templates:
 			3: Rock
 	Template@89:
 		Id: 89
-		Images: wc31.tem
+		Images: wc31_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1715,7 +1723,7 @@ Templates:
 			3: Rock
 	Template@90:
 		Id: 90
-		Images: wc32.tem
+		Images: wc32_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1724,7 +1732,7 @@ Templates:
 			2: Water
 	Template@91:
 		Id: 91
-		Images: wc33.tem
+		Images: wc33_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1734,7 +1742,7 @@ Templates:
 			3: Rock
 	Template@92:
 		Id: 92
-		Images: wc34.tem
+		Images: wc34_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1744,7 +1752,7 @@ Templates:
 			3: Rock
 	Template@93:
 		Id: 93
-		Images: wc35.tem
+		Images: wc35_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1754,7 +1762,7 @@ Templates:
 			3: Rock
 	Template@94:
 		Id: 94
-		Images: wc36.tem
+		Images: wc36_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1764,7 +1772,7 @@ Templates:
 			3: Rock
 	Template@95:
 		Id: 95
-		Images: wc37.tem
+		Images: wc37_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -1774,7 +1782,7 @@ Templates:
 			3: Rock
 	Template@96:
 		Id: 96
-		Images: wc38.tem
+		Images: wc38_tem.shp
 		Size: 2,2
 		Categories: Water Cliffs
 		Tiles:
@@ -2565,7 +2573,7 @@ Templates:
 			11: Rock
 	Template@238:
 		Id: 238
-		Images: br2a.tem
+		Images: br2a_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -2581,7 +2589,7 @@ Templates:
 			13: Rock
 	Template@239:
 		Id: 239
-		Images: br2b.tem
+		Images: br2b_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -2597,7 +2605,7 @@ Templates:
 			13: Rock
 	Template@240:
 		Id: 240
-		Images: br2c.tem
+		Images: br2c_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -2613,7 +2621,7 @@ Templates:
 			13: Rock
 	Template@241:
 		Id: 241
-		Images: br3a.tem
+		Images: br3a_tem.shp
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2624,7 +2632,7 @@ Templates:
 			7: Tunnel
 	Template@242:
 		Id: 242
-		Images: br3b.tem
+		Images: br3b_tem.shp
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2635,7 +2643,7 @@ Templates:
 			7: Tunnel
 	Template@243:
 		Id: 243
-		Images: br3c.tem
+		Images: br3c_tem.shp
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2646,7 +2654,7 @@ Templates:
 			7: Tunnel
 	Template@244:
 		Id: 244
-		Images: br3d.tem
+		Images: br3d_tem.shp
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2657,7 +2665,7 @@ Templates:
 			7: Tunnel
 	Template@245:
 		Id: 245
-		Images: br3e.tem
+		Images: br3e_tem.shp
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2668,7 +2676,7 @@ Templates:
 			7: Water
 	Template@246:
 		Id: 246
-		Images: br3f.tem
+		Images: br3f_tem.shp
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2679,7 +2687,7 @@ Templates:
 			7: Water
 	Template@380:
 		Id: 380
-		Images: br1x.tem
+		Images: br1x_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -2690,7 +2698,7 @@ Templates:
 			14: Water
 	Template@381:
 		Id: 381
-		Images: br2x.tem
+		Images: br2x_tem.shp
 		Size: 5,1
 		Categories: Bridge
 		Tiles:
@@ -2698,7 +2706,7 @@ Templates:
 			4: Beach
 	Template@131:
 		Id: 131
-		Images: bridge1.tem
+		Images: bridge1_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -2714,7 +2722,7 @@ Templates:
 			12: Rock
 	Template@132:
 		Id: 132
-		Images: bridge1d.tem
+		Images: bridge1d_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -2730,7 +2738,7 @@ Templates:
 			12: Rock
 	Template@378:
 		Id: 378
-		Images: bridge1h.tem
+		Images: bridge1h_tem.shp
 		Size: 5,3
 		Categories: Bridge
 		Tiles:
@@ -3000,14 +3008,14 @@ Templates:
 			5: River
 	Template@97:
 		Id: 97
-		Images: b1.tem
+		Images: b1_tem.shp
 		Size: 1,1
 		Categories: Debris
 		Tiles:
 			0: Rock
 	Template@98:
 		Id: 98
-		Images: b2.tem
+		Images: b2_tem.shp
 		Size: 2,1
 		Categories: Debris
 		Tiles:
@@ -3015,7 +3023,7 @@ Templates:
 			1: Rock
 	Template@99:
 		Id: 99
-		Images: b3.tem
+		Images: b3_tem.shp
 		Size: 3,1
 		Categories: Debris
 		Tiles:

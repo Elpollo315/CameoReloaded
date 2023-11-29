@@ -20,6 +20,7 @@ Player:
 			tsgtweap: 20
 			tsntweap: 20
 			tsmaweap: 20
+			tsctwshop: 15
 			tsmechfact: 20
 			tsgthpad: 20
 			tsnthpad: 20
@@ -33,6 +34,12 @@ Player:
 			tscalifeform: 1
 			tsgtsilo.gdi: 20
 			tsgtsilo.nod: 20
+			tsntpuls.gdi: 1
+			tsntpuls.nod: 1
+			tsntpuls.cabal: 1
+			tsgtplug: 1
+			tsntmisl: 1
+			tsnttmpl: 1
 		BuildingFractions:
 			camea_conyard: 5
 			tsproc.gdi: 10
@@ -46,6 +53,7 @@ Player:
 			tsgtweap: 5
 			tsntweap: 5
 			tsmaweap: 5
+			tsctwshop: 5
 			tsmechfact: 5
 			tsgtvulc: 7
 			tsntlasr: 7
@@ -77,6 +85,15 @@ Player:
 			tsmapowr2.nuke: 8
 			tsmctarmor: 1
 			tscalifeform: 1
+			tsntpuls.gdi: 1
+			tsntpuls.nod: 1
+			tsntpuls.cabal: 1
+			tsgtplug: 1
+			tsntmisl: 1
+			tsnttmpl: 1
+			tsgtplug2: 1
+			tsgtplug3: 1
+			tsgtplug4: 1
 			commander_tree.tsgdi.keeper: 1
 			commander_tree.tsgdi.tsionh: 1
 			commander_tree.tsgdi.tstriton: 1
@@ -93,6 +110,10 @@ Player:
 			commander_tree.tsnod.tshgunner: 1
 			commander_tree.tsnod.tskesselbrutn: 1
 			commander_tree.tsnod.tsfusion: 1
+			commander_tree.tsnod.tsstnk.sting: 1
+			commander_tree.tsnod.tsstnk.burst: 1
+			commander_tree.tsnod.tsbike.sting: 1
+			commander_tree.tsnod.tsbike.burst: 1
 			commander_tree.forgotten.doctrine.gdi: 1
 			commander_tree.forgotten.doctrine.nod: 1
 			commander_tree.forgotten.doctrine.terror: 1
@@ -169,6 +190,8 @@ Player:
 			tshvrlazer: 10
 			tsbehemoth: 15
 			tsbike: 25
+			tsbike.burst: 25
+			tsbike.sting: 25
 			tspickf: 25
 			tsaatnk: 25
 			tsftnk: 15
@@ -188,6 +211,8 @@ Player:
 			tsfusionbike: 10
 			tsfusionbggy: 5
 			tsfusionstnk: 40
+			tsfusionsub: 25
+			tssubtank: 35
 			tsmonolith: 25
 			tscorb: 25
 			tsmorb: 25
@@ -205,6 +230,8 @@ Player:
 			tshvr.emp: 35
 			tsmmkii: 40
 			tsstnk: 40
+			tsstnk.sting: 40
+			tsstnk.burst: 40
 			tsart2: 40
 			tsrepair: 5
 			tswinif: 5
@@ -227,6 +254,7 @@ Player:
 			tsharv.gdi: 20
 			tsharv.nod: 20
 			tsharv.forgotten: 20
+			tsharv.forgotten2: 20
 			tsharv.cabal: 20
 			tsengineer.gdi: 1
 			tsengineer.nod: 1

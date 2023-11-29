@@ -89,6 +89,58 @@ tsflameguy:
 		DamageInterval: 16
 		Terrain: Tiberium, BlueTiberium
 
+
+tspod2:
+	Inherits@2: ^ExistsInWorld
+	Valued:
+		Cost: 10
+	Tooltip:
+		Name: Drop Pod
+	Health:
+		HP: 6000
+	Armor:
+		Type: Light
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 300
+		CruiseAltitude: 16c0
+		MaximumPitch: 110
+		LandableTerrainTypes: Clear, Road, Rail, DirtRoad, Rough
+	HiddenUnderFog:
+		Type: CenterPosition
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+	RenderSprites:
+		Image: tspod
+	WithFacingSpriteBody:
+	QuantizeFacingsFromSequence:
+	HitShape:
+	Interactable:
+	WithShadow:
+	LeavesTrails:
+		Image: tslargesmoke
+		MovingInterval: 3
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		Palette: tseffect
+	FallsToEarth:
+		Explosion: TSDropPodExplode
+		Moves: true
+		Velocity: 768
+		MaximumSpinSpeed: 0
+
+tspode1:
+	Inherits: tspod2
+	SpawnActorOnDeath:
+		Actor: tse1.gdi
+	SpawnActorOnDeath@2:
+		Actor: tse1.gdi
+tspode2:
+	Inherits: tspod2
+	SpawnActorOnDeath:
+		Actor: tse2
+	SpawnActorOnDeath@2:
+		Actor: tse2
 ###################################################
 #               GDI
 ###################################################
@@ -839,6 +891,59 @@ tshgunner:
 		DefaultAttackSequence: attack
 	-WithInfantryBody:
 
+tsmassn:
+	Inherits: ^Soldier
+	Inherits: ^ScoutEquipment
+	Inherits@BOTHELPER: ^BotCaptureHelper
+	Inherits@TS: ^TSInfantry
+	Buildable:
+		Queue: Infantry, Infantry.Multi
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: ~infantry.tsnod, anyhq
+		Description: A new infiltrator generation, used by nod to replace Hijackers and Charmeleon Spies
+		IconPalette: chromets
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Assasin
+	Selectable:
+		Class: tsmassn
+	Armament:
+		Weapon: TSAssasinGun
+	Armament@Garrison:
+		Name: mounted
+		Weapon: TSAssasinGun
+	AttackFrontal:
+		PauseOnCondition: being-warped
+		FacingTolerance: 0
+	WithSplitAttackPaletteInfantryBody:
+		DefaultAttackSequence: attack
+	-WithInfantryBody:
+	Cloak:
+		InitialDelay: 88
+		CloakDelay: 88
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		Palette: cloak
+		IsPlayerPalette: false
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
+		PauseOnCondition: cloak-force-disabled || empdisable
+		CloakType: nod-stealth
+	-Crushable:
+	CaptureManager:
+	Captures:
+		CaptureTypes: vehicle
+		PlayerExperience: 50
+	Infiltrates:
+		Types: SpyInfiltrate
+		Notification: BuildingInfiltrated
+		PlayerExperience: 50
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+		ScanRadius: 5
+	-Guard:
 ###################################################
 #               MUTANT
 ###################################################
@@ -1176,39 +1281,6 @@ tshgrunt:
 	Armament@Garrison:
 		Name: mounted
 		Weapon: TSM1Carbine
-
-tsmassn:
-	Inherits: tse1.gdi
-	Buildable:
-		Queue: Infantry, Infantry.Multi
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 10
-		Prerequisites: ~infantry.forgotten, ~commander_tree.forgotten.doctrine.terror
-		Description: Soldier, Mercenary and other type of man, this militar guy dont have a specific army like GDI or Nod
-		IconPalette: chromets
-	Valued:
-		Cost: 150
-	Tooltip:
-		Name: Assasin
-	Selectable:
-		Class: TSE1
-	Armament:
-		Weapon: TSAssasinGun
-	Armament@Garrison:
-		Name: mounted
-		Weapon: TSAssasinGun
-	Cloak:
-		InitialDelay: 88
-		CloakDelay: 88
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
-		Palette: cloak
-		IsPlayerPalette: false
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
-		PauseOnCondition: cloak-force-disabled || empdisable
-		CloakType: nod-stealth
-
-
 tscengie:
 	Inherits: ^Soldier
 	Inherits: ^ScoutEquipment
@@ -1423,7 +1495,7 @@ tscyborg:
 	Mobile:
 		Speed: 56
 	Health:
-		HP: 60000
+		HP: 55000
 	Passenger:
 	RevealsShroud:
 		Range: 5c0
@@ -1476,7 +1548,7 @@ tscyborg2:
 	Mobile:
 		Speed: 56
 	Health:
-		HP: 30000
+		HP: 28000
 	Passenger:
 	RevealsShroud:
 		Range: 5c0
@@ -1747,7 +1819,7 @@ tschijacker:
 	Mobile:
 		Speed: 70
 	Health:
-		HP: 38000
+		HP: 50000
 	Passenger:
 	RevealsShroud:
 		Range: 5c0
@@ -1960,6 +2032,28 @@ tsmutciv4:
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tsmutciv4
+tssteame1:
+	Inherits: tse1.gdi
+	Buildable:
+		Queue: Infantry, Infantry.Multi
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: ~infantry.tsnod, ~disabled
+		Description: General-purpose infantry with good scouting abilities.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		IconPalette: chromets
+	Selectable:
+		Class: tssteame1
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Desintegrator
+	Mobile:
+		Speed: 60
+	Armament@PRIMARY:
+		Weapon: TSRadiationLaser
+		LocalOffset: 450,0,250
+	Health:
+		HP: 16000
 ###################################################
 #               Creatures
 ###################################################

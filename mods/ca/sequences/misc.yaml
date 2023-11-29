@@ -1250,14 +1250,78 @@ resources:
 			INTERIOR: TEMPERAT
 			JUNGLE: TEMPERAT
 			DESERT: TEMPERAT
-	gold01: gold01
-	gold02: gold02
-	gold03: gold03
-	gold04: gold04
-	gem01: gem01
-	gem02: gem02
-	gem03: gem03
-	gem04: gem04
+	gold01: gold01_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gold02: gold02_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gold03: gold03_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gold04: gold04_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gold01_alt: gold01_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.45
+	gold02_alt: gold02_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.45
+	gold03_alt: gold03_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.45
+	gold04_alt: gold04_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.45
+	gem01: gem01_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gem02: gem02_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gem03: gem03_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
+	gem04: gem04_tem
+		TilesetOverrides:
+			JUNGLE: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Scale: 0.4
 	ti1: ti1
 		TilesetOverrides:
 			JUNGLE: TEMPERAT
@@ -1558,7 +1622,6 @@ scorches:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
-		Scale: 2.0
 	sc1: sc1
 	sc2: sc2
 	sc3: sc3
@@ -1572,7 +1635,6 @@ craters:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
-		Scale: 2.0
 	cr1: cr1
 	cr2: cr2
 	cr3: cr3
@@ -1797,7 +1859,6 @@ split2:
 			WINTER: SNOW
 			BARREN: SNOW
 			INTERIOR: TEMPERAT
-		Scale: 2.0
 	make:
 		Length: 30
 	active:
@@ -1816,7 +1877,6 @@ split3:
 			WINTER: SNOW
 			BARREN: DESERT
 			INTERIOR: DESERT
-		Scale: 2.0
 	make:
 		Length: 30
 	active:

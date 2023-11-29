@@ -66,21 +66,21 @@ TSVulcan3.Gat0:
 	ReloadDelay: 10
 	Report: cygun1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 900
 
 TSVulcan3.Gat1:
 	Inherits: ^TSMG
 	ReloadDelay: 6
 	Report: cygun1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 1550
+		Damage: 1100
 
 TSVulcan3.Gat2:
 	Inherits: ^TSMG
 	ReloadDelay: 3
 	Report: cygun1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 1600
+		Damage: 1150
 
 TSVulcan4:
 	Inherits: ^TSMG
@@ -147,11 +147,13 @@ TSRaiderTwinCannonForgotten:
 
 TSHarpyClaw:
 	Inherits: ^TSMG
+	ValidTargets: Ground, Air
 	ReloadDelay: 12
 	Range: 5c0
 	Report: cygun1.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
+		ValidTargets: Ground, Air
 
 TSPistola:
 	Inherits: ^TSMG
@@ -265,6 +267,18 @@ TSZoneShot:
 		Explosions: tsionringgun
 		ValidTargets: Ground, Air
 		ExplosionPalette: tseffect
+TSHindClawz:
+	Inherits: ^TSMG
+	Range: 6c0
+	Burst: 6
+	BurstDelays: 2
+	Report: infgun3.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+	Warhead@2Eff: CreateEffect
+		Explosions: tspiff
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
 ###################################################
 #               Ballistic
 ###################################################
@@ -412,6 +426,20 @@ TS155mm:
 		Explosions: tslarge_explosion
 		ImpactSounds: expnew06.aud
 
+TS155mm.Ranged:
+	Inherits: TS155mm
+	ReloadDelay: 110
+	Range: 36c0
+
+TS155mm.Cluster:
+	Inherits: TS155mm
+	ReloadDelay: 110
+	Range: 18c0
+	Warhead@Cluster: FireCluster
+		Weapon: TSMultiCluster
+		RandomClusterCount: 4
+		Dimensions: 3,3
+		Footprint: _x_ x_x _x_
 TSJugg90mm:
 	Inherits: ^TSArtilleryWeapon
 	ReloadDelay: 150
@@ -624,6 +652,8 @@ TSWeaponEmpCannon:
 TSBazooka:
 	Inherits: ^TSDefaultMissile
 	Report: rketinf1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
 TSTwinBazooka:
 	Inherits: ^TSDefaultMissile
 	Report: rketinf1.aud
@@ -644,8 +674,8 @@ TSHoverMissileEMP:
 		ExplosionPalette: tseffect-ignore-lighting-alpha75
 		ImpactSounds: expnew16.aud
 	Warhead@emp: GrantExternalCondition
-		Range: 3c0
-		Duration: 200
+		Range: 1c0
+		Duration: 100
 		Condition: empdisable
 		ValidTargets: Ground, Structure, Vehicle
 
@@ -711,10 +741,30 @@ TSBikeMissile:
 	Inherits: ^TSDefaultMissile
 	Range: 5c0
 	Report: misl1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Air
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 5000
 		ValidTargets: Ground, Air
+
+TSBikeMissile.Sting:
+	Inherits: TSBikeMissile
+	ReloadDelay: 75
+	Range: 6c0
+	Report: misl1.aud
+	ValidTargets: Ground, Air
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		ValidTargets: Ground, Air
+	Projectile: MissileCA
+		Speed: 400
+
+TSBikeMissile.Burst:
+	Inherits: TSBikeMissile
+	ReloadDelay: 45
+	Range: 5c0
+	Burst: 2
+	Projectile: MissileCA
+		Speed: 300
 TSTowRocket:
 	Inherits: ^TSDefaultMissile
 	Range: 5c0
@@ -730,8 +780,24 @@ TSDragon:
 	Burst: 2
 	Report: misl1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
-
+		Damage: 4000
+TSDragon.Burst:
+	Inherits: TSDragon
+	ReloadDelay: 75
+	Burst: 4
+	Projectile: MissileCA
+		Speed: 300
+	Report: misl1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+TSDragon.Sting:
+	Inherits: TSDragon
+	Range: 7c0
+	ReloadDelay: 80
+	Warhead@1Dam: SpreadDamage
+		Damage: 9000
+	Projectile: MissileCA
+		Speed: 400
 TSHellfire:
 	Inherits: ^TSDefaultMissile
 	ReloadDelay: 50
@@ -857,6 +923,25 @@ TSBarrageTurret:
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: tslarge_clsn
+
+TSHellfireApache:
+	Inherits: ^TSDefaultMissile
+	ReloadDelay: 50
+	Report: orcamis1.aud
+	Burst: 4
+	ValidTargets: Ground, Air
+	Projectile: MissileCA
+		Speed: 400
+	Warhead@1Dam: SpreadDamage
+		Spread: 72
+		Damage: 4000
+		ValidTargets: Ground, Air
+		Versus:
+			None: 30
+			Wood: 65
+			Light: 150
+			Heavy: 100
+			Concrete: 30
 
 ###################################################
 #               Energy Guns
@@ -1094,7 +1179,7 @@ TSProton:
 		Palette: tseffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 4000
+		Damage: 5000
 		Versus:
 			None: 25
 			Wood: 65
@@ -1105,6 +1190,35 @@ TSProton:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: tssmall_bang
+TSEMPProton:
+	Inherits: TSProton
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 100
+		Condition: empdisable
+		ValidTargets: Ground, Structure, Vehicle
+	Warhead@3Eff: CreateEffect
+		Explosions: pulse_explosion_small
+		ExplosionPalette: tseffect-ignore-lighting-alpha75
+		ImpactSounds: expnew16.aud
+
+TSProton.area1:
+	Inherits: TSProton
+	Projectile: Bullet
+		Speed: 120
+	FirstBurstTargetOffset: -1000,-1800,0
+	FollowingBurstTargetOffset: 100,180,0
+
+TSProton.area2:
+	Inherits: TSProton.area1
+	FirstBurstTargetOffset: 0,0,0
+	FollowingBurstTargetOffset: -100,180,0
+
+TSProton.area3:
+	Inherits: TSProton.area1
+	FirstBurstTargetOffset: -800,2400,0
+	FollowingBurstTargetOffset: 120,-240,0
+
 TSForgottenProton:
 	Inherits: TSProton
 	Range: 5c0
@@ -1112,12 +1226,13 @@ TSForgottenProton:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1000
-	Warhead@4: FireShrapnel 
-		InvalidTargets: FireImmune
-		Weapon: TSChemicalLauncher
-		Amount: 4
-		AimChance: 100
-		AimTargetStances: Enemy, Neutral
+	Warhead@15Spawn: SpawnActor
+		Actors: camera.cloud2, camera.cloud
+		Range: 5
+		ForceGround: false
+		Image: Cloud1d
+		Palette: tseffect-ignore-lighting-alpha75
+		ValidTargets: Ground, Water
 TSIonHotwizer:
 	Inherits: ^TSEnergyBlast
 	ReloadDelay: 120
@@ -1431,6 +1546,69 @@ TSVenenoLaser:
 		Delay: 15
 		Footprint: _x_ xxx _x_
 
+TSRadiationLaser:
+	Inherits: ^TSLaser
+	ReloadDelay: 110
+	Range: 5c512
+	Report: obelray1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+	Projectile: PlasmaBeam
+		Duration: 7
+		Colors: 8BFF0080
+		InnerLightness: 100
+		OuterLightness: 70
+		Radius: 2
+		Distortion: 90
+		DistortionAnimation: 90
+		SegmentLength: 350
+		ZOffset: 1027
+		Inaccuracy: 128
+		SecondaryBeamWidth: 80
+	Warhead@Flashes: CreateEffect
+		Explosions: flashorange
+		ExplosionPalette: tsunit-ignore-lighting-alpha25
+		ValidTargets: Ground
+
+TSRadiationLaserTank:
+	Inherits: ^TSLaser
+	ReloadDelay: 10
+	Range: 6c512
+	Report: obelray1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 300
+	Projectile: PlasmaBeam
+		Duration: 7
+		Colors: 8BFF0080
+		InnerLightness: 100
+		OuterLightness: 70
+		Radius: 2
+		Distortion: 90
+		DistortionAnimation: 90
+		SegmentLength: 350
+		ZOffset: 1027
+		Inaccuracy: 128
+		SecondaryBeamWidth: 80
+	Warhead@Flashes: CreateEffect
+		Explosions: flashorange
+		ExplosionPalette: tsunit-ignore-lighting-alpha25
+		ValidTargets: Ground
+TSContaminationMortar:
+	Inherits: TSProton
+	ReloadDelay: 120
+	Range: 15c0
+	Projectile: Bullet
+		Speed: 384
+		LaunchAngle: 165
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2500
+	Warhead@4: FireShrapnel 
+		InvalidTargets: FireImmune
+		Weapon: TSChemicalLauncher
+		Amount: 8
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
 ###################################################
 #               Other Weapons
 ###################################################
@@ -1751,3 +1929,224 @@ TSArtilleryDummy:
 	ValidTargets: Ground, Trees, Water, Underwater
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
+###################################################
+#               Super Weapons
+###################################################
+TSMultiCluster:
+	Inherits: ^TSDefaultMissile
+	ValidTargets: Ground, Water, Air, Trees
+	Projectile: Missile
+		MaximumLaunchSpeed: 120
+		Inaccuracy: 1c0
+		Speed: 370
+		Acceleration: 10
+		MinimumLaunchAngle: -255
+		MaximumLaunchAngle: 255
+		RangeLimit: 10c0
+		AllowSnapping: false
+		VerticalRateOfTurn: 64
+	Warhead@1Dam: SpreadDamage
+		Spread: 216
+		Damage: 13000
+		ValidTargets: Ground, Water, Air, Trees
+		Versus:
+			None: 100
+			Wood: 85
+			Light: 70
+			Heavy: 35
+			Concrete: 28
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		ImpactActors: false
+		Explosions: tslarge_twlt
+		ImpactSounds: expnew09.aud
+	Warhead@ResourceDestruction: DestroyResource
+
+TSClusterMissile:
+	ValidTargets: Ground, Water, Air, Trees
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Falloff: 100, 100, 0
+		Damage: 26000
+		ValidTargets: Ground, Water, Air, Trees
+		Versus:
+			None: 100
+			Wood: 85
+			Light: 70
+			Heavy: 35
+			Concrete: 28
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@SoundEffect: CreateEffect
+		Explosions: tslarge_twlt
+		ImpactSounds: expnew19.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		ExplosionPalette: tseffect
+	Warhead@Cluster: FireCluster
+		Weapon: TSMultiCluster
+		RandomClusterCount: 10
+		Dimensions: 7,7
+		Footprint: __xxx__ _xxxxx_ xxxxxxx xxxxxxx xxxxxxx _xxxxx_ __xxx__
+	Warhead@Shake: ShakeScreen
+		Duration: 20
+		Intensity: 5
+		Multiplier: 1,1
+
+TSChemicalMissile:
+	ValidTargets: Ground, Water, Air, Trees
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Falloff: 100, 100, 0
+		Damage: 26000
+		ValidTargets: Ground, Water, Air, Trees
+		Versus:
+			None: 100
+			Wood: 85
+			Light: 70
+			Heavy: 35
+			Concrete: 28
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@SoundEffect: CreateEffect
+		Explosions: tslarge_twlt
+		ImpactSounds: expnew19.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		ExplosionPalette: tseffect
+	Warhead@Shake: ShakeScreen
+		Duration: 20
+		Intensity: 5
+		Multiplier: 1,1
+	Warhead@3Res: CreateResource
+		AddsResourceType: Tiberium
+		Size: 1,1
+	Warhead@15Spawn: SpawnActor
+		Actors: camera.cloud2, camera.cloud
+		Range: 5
+		ForceGround: false
+		Image: Cloud1d
+		Palette: tseffect-ignore-lighting-alpha75
+		ValidTargets: Ground, Water
+	Warhead@16Spawn: SpawnActor
+		Actors: camera.cloud2
+		Range: 5
+		ForceGround: false
+		Image: Cloud2d
+		Palette: tseffect-ignore-lighting-alpha75
+		ValidTargets: Ground, Water
+	Warhead@17Spawn: SpawnActor
+		Actors: camera.cloud
+		Range: 5
+		ForceGround: false
+		Image: Cloud2d
+		Palette: tseffect-ignore-lighting-alpha75
+		ValidTargets: Ground, Water
+
+TSSuicideBomb:
+	Inherits: ^Explosion
+	Report: expnew09.aud
+	Projectile: InstantHit
+	ValidTargets: Vehicle, Building, Defense, Infantry
+	Warhead@2Eff: CreateEffect
+		ImpactActors: false
+		Explosions: tslarge_twlt
+		ImpactSounds: expnew09.aud
+		ExplosionPalette: tseffect
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 15000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Vehicle, Building, Defense, Infantry
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Dam_impact: SpreadDamage
+		Spread: 2c0
+		Damage: 1000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Vehicle, Building, Defense, Infantry
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+		Delay: 3
+
+TSIonCannon:
+	ValidTargets: Ground, Water, Air, Trees
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 10000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@2Dam_area: SpreadDamage
+		Spread: 1c0
+		Damage: 25000
+		Falloff: 100, 50, 25, 0
+		Delay: 3
+		ValidTargets: Ground, Water, Air, Trees
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+	Warhead@3Smu_area: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+		Size: 2
+		Delay: 3
+	Warhead@4Effect: CreateEffect
+		Explosions: tsionbeam
+		ImpactSounds: ion1.aud
+		ImpactActors: false
+		ExplosionPalette: tseffect
+	Warhead@5Effect: CreateEffect
+		Explosions: tsionbeam2
+		ImpactActors: false
+		ExplosionPalette: tseffect
+	Warhead@6Effect: CreateEffect
+		Explosions: tsionbeam3
+		ImpactActors: false
+		ExplosionPalette: tseffect
+	Warhead@7Effect: CreateEffect
+		Explosions: tsionbeam4
+		ImpactActors: false
+		ExplosionPalette: tseffect
+	Warhead@8Effect: CreateEffect
+		Explosions: tsionbeam5
+		ImpactActors: false
+		ExplosionPalette: tseffect
+	Warhead@9Effect: CreateEffect
+		Explosions: tsionbeam6
+		ImpactActors: false
+		ExplosionPalette: tseffect
+
+TSEMPulseCannon:
+	ReloadDelay: 100
+	Range: 40c0
+	Report: plsecan2.aud
+	Projectile: Bullet
+		Speed: 425
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 96
+		Image: tsionprojectile
+		Palette: tseffect
+	Warhead@1Eff: CreateEffect
+		Explosions: tspulse_explosion
+		ImpactActors: false
+		ExplosionPalette: tseffect
+	Warhead@emp: GrantExternalCondition
+		Range: 6c0
+		Duration: 250
+		Condition: empdisable
+		ValidTargets: Ground, Water, Air, Underground
+TSForgottenSpawn:
+	ReloadDelay: 1
+	Projectile: InstantExplode
+	Warhead@2Eff: CreateEffect
+		Explosions: chronowarpbig_effect
+		ExplosionPalette: ra2effect-ignore-lighting-alpha75
+		ValidTargets: Ground, Air, Water
+		ImpactSounds: chrono2.aud
+	Warhead@teleport: SpawnActor
+		Actors: tsdoggie, tsdoggie, tsdoggie, tsdoggie, tsdoggieblue, tsmutant4, tsmutant4, tsmutant4, tsmutant4
+		Range: 5
+		Image: chronoappear
+		Sequence: idle
+		ValidTargets: Air, Ground, Water
+	Warhead@3Flash: ChronoFlashEffect
+TSDropPodExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: tsdroppod_explosion, tsdroppod2_explosion, tsdroppody_explosion, tsdroppody2_explosion
+		ExplosionPalette: tseffect

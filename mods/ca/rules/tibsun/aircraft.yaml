@@ -1,3 +1,73 @@
+tshunter:
+	Inherits: ^HelicopterTD
+	Inherits@2: ^ExistsInWorld
+	Inherits: ^PrioAntiLight
+	Buildable:
+		IconPalette: chromets
+		Queue: Aircraft
+		BuildPaletteOrder: 10
+		Prerequisites: ~aircraft.disabled
+		Description: Fast assault gunship with\ndual missile launchers.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Hunter-Seeker Droid
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	Aircraft:
+		TurnSpeed: 64
+		Speed: 355
+		Pitch: 0
+		Roll: 0
+		CruiseAltitude: 1c128
+		CruisingCondition: cruising
+		MoveIntoShroud: true
+	AttackAircraft:
+		FacingTolerance: 512
+		AttackType: Hover
+	Armament@PRIMARY:
+		Weapon: DemoTruckTargeting
+	Explodes@NUKE:
+		Weapon: TSSuicideBomb
+		EmptyWeapon: TSSuicideBomb
+		DamageSource: Killer
+		RequiresCondition: !unloaded && !being-warped
+	Explodes@UNARMED:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+		RequiresCondition: unloaded && !being-warped
+	GrantConditionOnAttack:
+		Condition: triggered
+	KillsSelf:
+		RequiresCondition: triggered
+	Targetable:
+		TargetTypes: Ground, Vehicle
+	HiddenUnderFog:
+		Type: CenterPosition
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+	RenderSprites:
+		Image: tsgghunt
+	WithFacingSpriteBody:
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	QuantizeFacingsFromSequence:
+	AppearsOnRadar:
+		UseLocation: true
+	HitShape:
+	MapEditorData:
+		Categories: System
+	RenderSprites:
+		PlayerPalette: playerts
+	-EjectOnDeath:
+	-SpawnActorOnDeath:
+
+tshunternod:
+	Inherits@2: tshunter
+	RenderSprites:
+		Image: tsgghuntnod
 ###################################################
 #               GDI
 ###################################################
@@ -15,6 +85,7 @@ tsorca:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		IconPalette: chromets
 		Queue: Aircraft
 		BuildPaletteOrder: 10
 		Prerequisites: ~aircraft.tsgdi
@@ -221,6 +292,7 @@ tsorcab:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		IconPalette: chromets
 		Queue: Aircraft
 		BuildPaletteOrder: 30
 		Prerequisites: ~aircraft.tsgdi, tech
@@ -434,6 +506,7 @@ tstrnsport:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		IconPalette: chromets
 		Queue: Aircraft
 		BuildPaletteOrder: 60
 		Prerequisites: ~aircraft.tsgdi, tech
@@ -517,6 +590,7 @@ tsapache:
 		BuildPaletteOrder: 20
 		Prerequisites: ~aircraft.tsnod
 		Description: Anti-personnel support gunship\narmed with dual chain guns.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Vehicles
+		IconPalette: chromets
 	Selectable:
 		Bounds: 905, 1448
 	Aircraft:
@@ -685,6 +759,44 @@ tsscrin:
 	EjectOnDeath:
 		PilotActor: tse1.pilot.nod
 
+tsscrin.emp:
+	Inherits: tsscrin
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Banshee Fighter (EMP)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 40
+		Prerequisites: ~aircraft.tsnod, tech, ~vehicle.tsscrin.emp
+	Armament:
+		Weapon: TSEMPProton
+
+tsscrin.trishot:
+	Inherits: tsscrin
+	Valued:
+		Cost: 1650
+	Tooltip:
+		Name: Banshee Fighter (Fragments)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 40
+		Prerequisites: ~aircraft.tsnod, tech, ~vehicle.tsscrin.trishot
+	Armament:
+		Weapon: TSProton.area1
+	Armament@2:
+		Weapon: TSProton.area2
+	Armament@3:
+		Weapon: TSProton.area3
+	AmmoPool:
+		Ammo: 30
+		ReloadCount: 8
+		AmmoCondition: ammo
+
 tsscrin.husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:
@@ -729,7 +841,7 @@ tsvenm:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
 		Prerequisites: ~aircraft.tsnod, tech
-		IconPalette: chrometd
+		IconPalette: chromets
 		Description: VTOL gunship armed\nwith laser.\n  Strong vs Infantry, Light Armor, Aircraft\n  Weak vs Tanks, Buildings
 	Aircraft:
 		AltitudeVelocity: 0c100
@@ -847,6 +959,117 @@ tsvenm.husk:
 
 tsvenm.husk.emp:
 	Inherits: tsvenm.husk
+	Inherits: ^EmpVisualEffect
+
+tssknigh:
+	Inherits: ^HelicopterTD
+	Inherits: ^PrioAntiHeavyAA
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits: ^AircraftWithAmmoTwo
+	RenderSprites:
+		PlayerPalette: playerts
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Knight Storm
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 40
+		Prerequisites: ~aircraft.tsnod, tech
+		Description: Advanced fighter-bomber craft\nwith twin plasma cannons.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+		IconPalette: chromets
+	Aircraft:
+		CruiseAltitude: 3c0
+		TurnSpeed: 15
+		Speed: 200
+		IdleTurnSpeed: 6
+		IdleSpeed: 100
+		TakeoffSounds: dropup1.aud
+		LandingSounds: dropdwn1.aud
+		CanHover: false
+		CanSlide: false
+	Health:
+		HP: 28000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 2c0
+		Type: CenterPosition
+	Armament:
+		Weapon: TSHellfire
+		PauseOnCondition: !ammo
+	Armament@2:
+		Weapon: TSHellfire
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 80
+		PersistentTargeting: false
+		PauseOnCondition: empdisable
+	AmmoPool:
+		Ammo: 20
+		ReloadCount: 5
+		AmmoCondition: ammo
+	RenderSprites:
+	DeathSounds:
+	SpawnActorOnDeath:
+		Actor: tssknigh.husk
+		RequiresCondition: !empdisable
+	SpawnActorOnDeath@EMP:
+		Actor: tssknigh.husk.emp
+		RequiresCondition: empdisable
+	WithAmmoPipsDecoration:
+		PipCount: 2
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	AutoTarget:
+		InitialStance: Defend
+		InitialStanceAI: Defend
+	LeavesTrails:
+		Offsets: -427,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	WithMoveAnimation:
+		MoveSequence: move
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	Voiced:
+		VoiceSet: TSScrin
+	EjectOnDeath:
+		PilotActor: tse1.pilot.nod
+
+tssknigh.husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Knight Storm
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 186
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	RenderSprites:
+		Image: tssknigh
+		PlayerPalette: playerts
+
+tssknigh.husk.emp:
+	Inherits: tssknigh.husk
 	Inherits: ^EmpVisualEffect
 
 ###################################################
@@ -972,15 +1195,15 @@ tscveneno:
 		Prerequisites: ~aircraft.cabal, tech
 		Description: Fast assault gunship with\ndual missile launchers.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Aircraft:
-		TurnSpeed: 15
-		Speed: 105
+		TurnSpeed: 10
+		Speed: 90
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
 		AltitudeVelocity: 67
 		CanSlide: false
 		TakeOffOnResupply: true
 	Health:
-		HP: 400000
+		HP: 280000
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -1186,7 +1409,7 @@ tsheli:
 	RenderSprites:
 		PlayerPalette: playerts
 	Valued:
-		Cost: 1000
+		Cost: 1200
 	Tooltip:
 		Name: Apache
 	UpdatesPlayerStatistics:
@@ -1215,7 +1438,7 @@ tsheli:
 		Range: 2c0
 		Type: CenterPosition
 	Armament:
-		Weapon: TSHellfire
+		Weapon: TSHellfireApache
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 80
@@ -1279,4 +1502,107 @@ tsheli.husk:
 
 tsheli.husk.emp:
 	Inherits: tsheli.husk
+	Inherits: ^EmpVisualEffect
+
+tshind:
+	Inherits: ^HelicopterTD
+	Inherits: ^PrioAntiHeavyAA
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits: ^AircraftWithAmmoHelicopter
+	RenderSprites:
+		PlayerPalette: playerts
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Hind
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 20
+		Prerequisites: ~aircraft.forgotten
+		Description: Anti-personnel support gunship\narmed with dual chain guns.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Vehicles
+	Selectable:
+		Bounds: 905, 1448
+	Aircraft:
+		Pitch: -32
+		PitchSpeed: 8
+		Roll: 16
+		RollSpeed: 8
+		TurnSpeed: 20
+		Speed: 130
+		CanSlide: false
+		TakeOffOnResupply: true
+	Health:
+		HP: 22500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 2c0
+		Type: CenterPosition
+	Armament:
+		Weapon: TSHindClawz
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		Voice: Attack
+		PauseOnCondition: empdisable
+		AttackType: Hover
+	AmmoPool:
+		Ammo: 12
+		AmmoCondition: ammo
+	WithIdleOverlay@ROTORAIR:
+		Offset: 12,0,1
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTORGROUND:
+		Offset: 12,0,1
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	RenderSprites:
+	SpawnActorOnDeath:
+		Actor: tshind.husk
+		RequiresCondition: !empdisable
+	SpawnActorOnDeath@EMP:
+		Actor: tshind.husk.emp
+		RequiresCondition: empdisable
+	WithAmmoPipsDecoration:
+		PipCount: 5
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	AutoTarget:
+		InitialStance: Defend
+		InitialStanceAI: Defend
+	WithMoveAnimation:
+		MoveSequence: move
+	Voiced:
+		VoiceSet: TSVehicle
+	EjectOnDeath:
+		PilotActor: tsmutant
+tshind.husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Apache
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 186
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	RenderSprites:
+		Image: tshind
+		PlayerPalette: playerts
+
+tshind.husk.emp:
+	Inherits: tshind.husk
 	Inherits: ^EmpVisualEffect

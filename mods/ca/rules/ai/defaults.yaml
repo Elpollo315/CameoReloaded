@@ -1,7 +1,7 @@
 Player:
 	HarvesterBotModuleCA:
 		RequiresCondition: enable-brutal-ai || enable-vhard-ai || enable-hard-ai || enable-normal-ai || enable-easy-ai || enable-naval-ai
-		HarvesterTypes: harv,har2,harv.scrin,harv.chrono,chharv, harv.camea, tsharv.gdi, tsharv.nod, tsharv.forgotten, tsharv.cabal
+		HarvesterTypes: harv,har2,harv.scrin,harv.chrono,chharv, harv.camea, tsharv.gdi, tsharv.nod, tsharv.forgotten, tsharv.cabal, tsharv.forgotten2
 		RefineryTypes: proc,proc.td,proc.scrin,chsupply, proc.camea, tsproc.gdi, tsproc.nod, tsmaproc.forgot, tsproc.cabal
 	CaptureManagerBotModuleCA:
 		RequiresCondition: enable-brutal-ai || enable-vhard-ai || enable-hard-ai || enable-normal-ai || enable-easy-ai
@@ -14,16 +14,16 @@ Player:
 		RequiresCondition: enable-brutal-ai || enable-vhard-ai || enable-hard-ai || enable-normal-ai || enable-easy-ai || enable-naval-ai
 	McvManagerBotModuleCA@upper:
 		RequiresCondition: enable-brutal-ai || enable-vhard-ai || enable-hard-ai
-		McvTypes: mcv, amcv, smcv, chnmcv, mcv.camea,tsmcv.gdi,tsmcv.nod
-		ConstructionYardTypes: fact, afac, sfac, chcommand, camea_conyard, tsgtcnst, tsgtcnst.nod
+		McvTypes: mcv, amcv, smcv, chnmcv, mcv.camea,tsmcv.gdi,tsmcv.nod,tsmcv.forgotten
+		ConstructionYardTypes: fact, afac, sfac, chcommand, camea_conyard, tsgtcnst, tsgtcnst.nod, tsmacnst.forgotten
 		McvFactoryTypes: weap, weap.td, airs, wsph, chcommand, weap.camea,tsgtweap,tsntweap,tsmaweap
 		ScanForNewMcvInterval: 80
 		MaxBaseRadius: 25
 		MinimumConstructionYardCount: 2
 	McvManagerBotModuleCA@lower:
 		RequiresCondition: enable-normal-ai || enable-easy-ai || enable-naval-ai
-		McvTypes: mcv, amcv, smcv, chnmcv, mcv.camea,tsmcv.gdi,tsmcv.nod
-		ConstructionYardTypes: fact, afac, sfac, chcommand, camea_conyard, tsgtcnst, tsgtcnst.nod
+		McvTypes: mcv, amcv, smcv, chnmcv, mcv.camea,tsmcv.gdi,tsmcv.nod,tsmcv.forgotten
+		ConstructionYardTypes: fact, afac, sfac, chcommand, camea_conyard, tsgtcnst, tsgtcnst.nod, tsmacnst.forgotten
 		McvFactoryTypes: weap, weap.td, airs, wsph, chcommand, weap.camea,tsgtweap,tsntweap,tsmaweap
 	AutoDeployManager:
 	SupportPowerBotModule:
@@ -568,3 +568,48 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+			tsemppulse:
+				OrderName: tsemppulse
+				MinimumAttractiveness: 1000
+				Consideration@1:
+					Against: Enemy
+					Types: Vehicle
+					Attractiveness: 5
+					TargetMetric: Value
+					CheckRadius: 2c0
+				Consideration@2:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 2
+					TargetMetric: Value
+					CheckRadius: 2c0
+				Consideration@3:
+					Against: Ally
+					Types: Vehicle, Structure
+					Attractiveness: -5
+					TargetMetric: Value
+					CheckRadius: 2c0
+			tsdroppods:
+				OrderName: DropPodsPowerInfoOrder
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
+			tsseekers:
+				OrderName: HunterSeekers
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0

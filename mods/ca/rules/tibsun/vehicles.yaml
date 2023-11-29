@@ -1272,7 +1272,7 @@ tsbggy:
 	Inherits: ^PrioAntiInfantry
 	RenderSprites:
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Attack Buggy
 	Buildable:
@@ -1322,7 +1322,7 @@ tsbike:
 		Name: Attack Cycle
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~vehicles.tsnod
+		Prerequisites: ~vehicles.tsnod, ~!vehicle.tsbike.sting, ~!vehicle.tsbike.burst
 		Queue: Vehicle, Vehicle.Multi
 		IconPalette: chromets
 		Description: Fast scout vehicle, armed with\nrockets.\n  Can attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
@@ -1330,7 +1330,7 @@ tsbike:
 		TurnSpeed: 32
 		Speed: 170
 	Health:
-		HP: 15000
+		HP: 16000
 	Armor:
 		Type: Wood
 	Armament@PRIMARY:
@@ -1357,14 +1357,42 @@ tsbike:
 		ValidRelationships: Enemy, Neutral
 	Targetable@fusion:
 		TargetTypes: Tsfusionable, tsfusionable
+tsbike.burst:
+	Inherits: tsbike
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Attack Cycle (Barrage Missile)
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~vehicles.tsnod, ~vehicle.tsbike.burst
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		Description: Fast scout vehicle, armed with\nrockets.\n  Can attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
+	Armament@PRIMARY:
+		Weapon: TSBikeMissile.Burst
 
+tsbike.sting:
+	Inherits: tsbike
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Attack Cycle (Sting Missile)
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~vehicles.tsnod, ~vehicle.tsbike.sting
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		Description: Fast scout vehicle, armed with\nrockets.\n  Can attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
+	Armament@PRIMARY:
+		Weapon: TSBikeMissile.Sting
 tsttnk:
 	Inherits: ^TankTS
 	Inherits: ^BiologicalDriver
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 800
+		Cost: 750
 	Tooltip:
 		Name: Tick Tank
 		RequiresCondition: !deployed
@@ -1511,7 +1539,7 @@ tsstnk:
 	Buildable:
 		BuildPaletteOrder: 60
 		IconPalette: chromets
-		Prerequisites: ~vehicles.tsnod, tech
+		Prerequisites: ~vehicles.tsnod, tech, ~!vehicle.tsstnk.burst, ~!vehicle.tsstnk.sting
 		Queue: Vehicle, Vehicle.Multi
 		Description: Lightly armoured tank equipped with a personal\nstealth generator. Armed with missiles.\nCan be spotted by infantry at close range.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Mobile:
@@ -1520,7 +1548,7 @@ tsstnk:
 	Health:
 		HP: 18000
 	Armor:
-		Type: Light
+		Type: Medium
 	RevealsShroud:
 		RequiresCondition: !inside-tunnel
 		Range: 5c0
@@ -1561,7 +1589,39 @@ tsstnk:
 		ValidRelationships: Enemy, Neutral
 	Targetable@Tsfusionable:
 		TargetTypes: Tsfusionable, tsfusionable
+tsstnk.sting:
+	Inherits: tsstnk
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Stealth Tank (Sting Misile)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 60
+		IconPalette: chromets
+		Prerequisites: ~vehicles.tsnod, tech, ~vehicle.tsstnk.sting
+		Queue: Vehicle, Vehicle.Multi
+	Armament:
+		Weapon: TSDragon.Sting
+		LocalOffset: 301,61,421, 301,-61,421
 
+tsstnk.burst:
+	Inherits: tsstnk
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Stealth Tank (Misile Barrage)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 60
+		IconPalette: chromets
+		Prerequisites: ~vehicles.tsnod, tech, ~vehicle.tsstnk.burst
+		Queue: Vehicle, Vehicle.Multi
+	Armament:
+		Weapon: TSDragon.Burst
+		LocalOffset: 301,61,421, 301,-61,421
 tsart2:
 	Inherits: ^TankTS
 	Inherits: ^BiologicalDriver
@@ -1582,7 +1642,7 @@ tsart2:
 		Queue: Vehicle, Vehicle.Multi
 		IconPalette: chromets
 		BuildPaletteOrder: 100
-		Prerequisites: ~vehicles.tsnod, anyhq
+		Prerequisites: ~vehicles.tsnod, anyhq, ~!vehicle.tsart2.ranged, ~!vehicle.tsart2.cluster
 		Description: Mobile Artillery.\nNeeds to deploy in order to shoot.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Health:
 		HP: 30000
@@ -1672,6 +1732,49 @@ tsart2:
 		ValidRelationships: Enemy, Neutral
 	Targetable@Tsfusionable:
 		TargetTypes: Tsfusionable, tsfusionable
+tsart2.ranged:
+	Inherits: tsart2
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Artillery (Ranged)
+		RequiresCondition: !deployed
+	Tooltip@DEPLOYED:
+		Name: Artillery (deployed) and (Ranged)
+		RequiresCondition: deployed
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		BuildPaletteOrder: 100
+		Prerequisites: ~vehicles.tsnod, anyhq, ~vehicle.tsart2.ranged
+	Armament@deployed:
+		Name: deployed
+		Turret: deployed
+		Weapon: TS155mm.Ranged
+
+tsart2.cluster:
+	Inherits: tsart2
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Artillery (Cluster)
+		RequiresCondition: !deployed
+	Tooltip@DEPLOYED:
+		Name: Artillery (deployed) and (Cluster)
+		RequiresCondition: deployed
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		BuildPaletteOrder: 100
+		Prerequisites: ~vehicles.tsnod, anyhq, ~vehicle.tsart2.cluster
+	Armament@deployed:
+		Name: deployed
+		Turret: deployed
+		Weapon: TS155mm.Cluster
 
 tsrepair:
 	Inherits: ^TankTS
@@ -1722,9 +1825,8 @@ tskesselbrutn:
 		Prerequisites: ~vehicles.tsnod, ~vehicle.tskesselbrutn
 		Description: Brute mech, with offensive Anti Ground Weapons
 tsfusion:
-	Inherits: ^VehicleTS
+	Inherits: ^TankTS
 	Inherits: ^BiologicalDriver
-	Inherits@detect: ^SensorEquipment
 	Inherits: ^PrioAntiHeavyAA
 	RenderSprites:
 	Valued:
@@ -1759,9 +1861,8 @@ tsfusion:
 		ValidRelationships: Ally
 
 ^tsfusion:
-	Inherits: ^VehicleTS
+	Inherits: ^TankTS
 	Inherits: ^BiologicalDriver
-	Inherits@detect: ^SensorEquipment
 	Inherits: ^PrioAntiHeavyAA
 	RenderSprites:
 	Valued:
@@ -1798,6 +1899,8 @@ tsfusionttnk:
 		TurnSpeed: 24
 		Offset: 100,0,111
 	WithSpriteTurret@deployed:
+	Valued:
+		Cost: 1600
 tsfusionart2:
 	Inherits: ^tsfusion
 	Health:
@@ -1808,6 +1911,8 @@ tsfusionart2:
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~vehicles.tsnod, ~botplayer, anyhq
+	Valued:
+		Cost: 1700
 tsfusionbike:
 	Inherits: ^tsfusion
 	Health:
@@ -1819,6 +1924,8 @@ tsfusionbike:
 		TurnSpeed: 24
 		Offset: -100,0,60
 	WithSpriteTurret@deployed:
+	Valued:
+		Cost: 1300
 tsfusionstnk:
 	Inherits: ^tsfusion
 	Health:
@@ -1843,6 +1950,8 @@ tsfusionstnk:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
 		PauseOnCondition: cloak-force-disabled || empdisable
 		CloakType: nod-stealth
+	Valued:
+		Cost: 1800
 tsfusionbggy:
 	Inherits: ^tsfusion
 	Health:
@@ -1854,6 +1963,138 @@ tsfusionbggy:
 		TurnSpeed: 24
 		Offset: -100,0,100
 	WithSpriteTurret@deployed:
+	Valued:
+		Cost: 1200
+tsfusionsub:
+	Inherits: ^tsfusion
+	Health:
+		HP: 50000
+	Armament@Addon:
+		Weapon: TSFireballLauncher
+		LocalOffset: -300,0,100
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~vehicles.tsnod, ~botplayer, anyhq
+	Valued:
+		Cost: 1600
+tssubtank:
+	Inherits: ^TankTS
+	Inherits: ^BiologicalDriver
+	Inherits: ^PrioAntiInfantry
+	RenderSprites:
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Devil's Tongue
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~vehicles.tsnod, anyhq
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		Description: Fast scout vehicle, armed with\nrockets.\n  Can attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
+	Mobile:
+		TurnSpeed: 24
+		Speed: 71
+		Locomotor: subterranean
+	Health:
+		HP: 35000
+	Armor:
+		Type: Medium
+	Armament:
+		Weapon: TSFireballLauncher
+	AttackFrontal:
+		PauseOnCondition: disabled || submerged
+		FacingTolerance: 0
+	Targetable:
+		RequiresCondition: !inside-tunnel && !submerged
+	Targetable@UNDERGROUND:
+		TargetTypes: Underground
+		RequiresCondition: submerged
+	GrantConditionOnSubterraneanLayer:
+		Condition: submerged
+		SubterraneanTransitionImage: tsdig
+		SubterraneanTransitionPalette: tseffect
+		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionSound: subdril1.aud
+	TransformOnCapture:
+		CaptureTypes: tsfusionable
+		IntoActor: tsfusionsub
+	InfiltrateForTransform:
+		IntoActor: tsfusionsub
+		Types: tsfusionable
+		ForceHealthPercentage: 100
+	Capturable@fusion:
+		Types: tsfusionable
+		ValidRelationships: Enemy, Neutral
+	Targetable@fusion:
+		TargetTypes: Tsfusionable, tsfusionable
+	Carryable:
+		RequiresCondition: !submerged
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: submerged
+		ReferencePoint: Center, Center
+		ZOffset: 2048
+		Image: gpsdot
+		Sequence: Vehicle
+		RequiresSelection: false
+		Palette: player
+		IsPlayerPalette: true
+	WithFacingSpriteBody:
+		Sequence: idle
+		RequiresCondition: !submerged
+
+tssapc:
+	Inherits: ^TankTS
+	Inherits: ^BiologicalDriver
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Subterranean APC
+	Buildable:
+		BuildPaletteOrder: 110
+		Prerequisites: ~vehicles.tsnod, tech
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		Description: Fast scout vehicle, armed with\nrockets.\n  Can attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
+	Mobile:
+		TurnSpeed: 24
+		Speed: 71
+		Locomotor: subterranean
+	Health:
+		HP: 17500
+	Armor:
+		Type: Medium
+	Targetable:
+		RequiresCondition: !inside-tunnel && !submerged
+	Targetable@UNDERGROUND:
+		TargetTypes: Underground
+		RequiresCondition: submerged
+	GrantConditionOnSubterraneanLayer:
+		Condition: submerged
+		SubterraneanTransitionImage: tsdig
+		SubterraneanTransitionPalette: tseffect
+		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionSound: subdril1.aud
+	Carryable:
+		RequiresCondition: !submerged
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: submerged
+		ReferencePoint: Center, Center
+		ZOffset: 2048
+		Image: gpsdot
+		Sequence: Vehicle
+		RequiresSelection: false
+		Palette: player
+		IsPlayerPalette: true
+	WithFacingSpriteBody:
+		Sequence: idle
+		RequiresCondition: !submerged
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		UnloadVoice: Unload
+		LoadingCondition: loading
+		EjectOnDeath: true
 #               Variants of Mechas by LKO
 tsjennn:
 	Inherits: tsjenng
@@ -1890,16 +2131,51 @@ tscolon:
 ###################################################
 #               MUTANT
 ###################################################
+tsmcv.forgotten:
+	Inherits: tsmcv.gdi
+	Buildable:
+		Queue: Vehicle, Vehicle.Multi
+		BuildPaletteOrder: 300
+		Prerequisites: anyhq, ~structures.forgotten
+		Description: Deploys into another Construction Yard.\n  Unarmed
+	Transforms:
+		IntoActor: tsmacnst.forgotten
 tsharv.forgotten:
 	Inherits: tsharv.gdi
 	RenderSprites:
 		Image: tsharv.forgotten
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~vehicles.forgotten, tsmaproc.forgot
+		Prerequisites: ~vehicles.forgotten, tsmaproc.forgot, ~!vehicle.tsarmedharv2
 		Queue: Vehicle, Vehicle.Multi
 		IconPalette: chromets
 		Description: Collects Tiberium, Ore and Gems for processing.\n  Unarmed
+tsharv.forgotten2:
+	Inherits: tsharv.gdi
+	Inherits: ^PrioAntiInfantry
+	Tooltip:
+		Name: Armed Harvester
+	RenderSprites:
+		Image: tsharv.forgotten2
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~vehicles.forgotten, tsmaproc.forgot, ~vehicle.tsarmedharv2
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		Description: Collects Tiberium, Ore and Gems for processing.\n  Unarmed
+	Turreted:
+		TurnSpeed: 60
+		Offset: 200,0,130
+	Armament:
+		Weapon: TSRaiderCannonForgotten
+		LocalOffset: 171,0,85
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	AutoTarget:
+	IgnoresDisguise:
 
 tscarf:
 	Inherits: ^VehicleTS
@@ -1911,7 +2187,7 @@ tscarf:
 		Queue: Vehicle, Vehicle.Multi
 		BuildPaletteOrder: 15
 		IconPalette: chromets
-		Prerequisites: ~vehicles.forgotten, ~!vehicle.tshmmv
+		Prerequisites: ~vehicles.forgotten.low, ~!vehicle.tshmmv
 		Description: A civilian Car adapted to war by forgotten, with Machinegun and some metal plates
 	Valued:
 		Cost: 300
@@ -1955,7 +2231,7 @@ tspickf:
 		Queue: Vehicle, Vehicle.Multi
 		BuildPaletteOrder: 15
 		IconPalette: chromets
-		Prerequisites: ~vehicles.forgotten, ~vehicle.tspickf
+		Prerequisites: ~vehicles.forgotten.low, ~vehicle.tspickf
 		Description: A civilian Car adapted to war by forgotten, with Machinegun and some metal plates
 	Mobile:
 		TurnSpeed: 20
@@ -2067,7 +2343,7 @@ tstruckbf:
 		Queue: Vehicle, Vehicle.Multi
 		BuildPaletteOrder: 15
 		IconPalette: chromets
-		Prerequisites: ~vehicles.forgotten, ~!commander_tree.forgotten.doctrine.gdi
+		Prerequisites: ~vehicles.forgotten.low, ~!commander_tree.forgotten.doctrine.gdi
 		Description: A civilian vehicle
 	Valued:
 		Cost: 700
@@ -2106,7 +2382,7 @@ tshmmv:
 		Queue: Vehicle, Vehicle.Multi
 		BuildPaletteOrder: 15
 		IconPalette: chromets
-		Prerequisites: ~vehicles.forgotten, ~!vehicle.tshmmv2, ~vehicle.tshmmv
+		Prerequisites: ~vehicles.forgotten.low, ~!vehicle.tshmmv2, ~vehicle.tshmmv
 		Description: A old GDI vehicle, Better than a cor,recovered by Forgotten from the battlefields or obandoned GDI bases, forgotten can use this with GDI Doctrine
 	Valued:
 		Cost: 400
@@ -2140,7 +2416,7 @@ tshmmv2:
 		Queue: Vehicle, Vehicle.Multi
 		BuildPaletteOrder: 15
 		IconPalette: chromets
-		Prerequisites: ~vehicles.forgotten, ~vehicle.tshmmv2
+		Prerequisites: ~vehicles.forgotten.low, ~vehicle.tshmmv2
 		Description: A old GDI vehicle, Better than a cor,recovered by Forgotten from the battlefields or obandoned GDI bases, forgotten can use this with GDI Doctrine
 	Tooltip:
 		Name: Advanced Hum-Vee
@@ -2165,7 +2441,7 @@ tsm113:
 		Queue: Vehicle, Vehicle.Multi
 		BuildPaletteOrder: 15
 		IconPalette: chromets
-		Prerequisites: ~vehicles.forgotten, ~commander_tree.forgotten.doctrine.gdi
+		Prerequisites: ~vehicles.forgotten.low, ~commander_tree.forgotten.doctrine.gdi
 		Description: A old GDI vehicle, Better than a cor,recovered by Forgotten from the battlefields or obandoned GDI bases, forgotten can use this with GDI Doctrine
 	Valued:
 		Cost: 700
@@ -3128,7 +3404,7 @@ tsdefender:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits: ^BigVehicle
 	Valued:
-		Cost: 15000
+		Cost: 20000
 	Tooltip:
 		Name: Core Defender
 	UpdatesPlayerStatistics:
@@ -3193,6 +3469,128 @@ tsreaper.crossed:
 		Queue: Infantry, Infantry.Multi
 	RenderSprites:
 		Image: tsreaper
+###################################################
+#               Steam
+###################################################
+tsharv.steam:
+	Inherits: tsharv.gdi
+	RenderSprites:
+		Image: tsharv.steam
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~vehicles.steam
+		Queue: Vehicle, Vehicle.Multi
+		IconPalette: chromets
+		Description: Collects Tiberium, Ore and Gems for processing.\n  Unarmed
+
+tssteambully:
+	Inherits: ^VehicleTS
+	Inherits: ^BiologicalDriver
+	Inherits: ^SensorEquipment
+	Inherits: ^PrioAntiInfantry
+	RenderSprites:
+	Buildable:
+		Queue: Vehicle, Vehicle.Multi
+		BuildPaletteOrder: 15
+		IconPalette: chromets
+		Prerequisites: ~vehicles.steam
+		Description: A old GDI vehicle, Better than a cor,recovered by Forgotten from the battlefields or obandoned GDI bases, forgotten can use this with GDI Doctrine
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Bully
+	Health:
+		HP: 25000
+	Mobile:
+		TurnSpeed: 70
+		Speed: 140
+	Turreted:
+		TurnSpeed: 80
+		Offset: -1,0,1
+	Armament:
+		Weapon: TSRaiderTwinCannonForgotten
+		LocalOffset: 175,0,110
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	AutoTarget:
+	IgnoresDisguise:
+	DetectCloaked:
+		Range: 6c0
+		DetectionTypes: Cloak, Thief
+		RequiresCondition: !(empdisable || being-warped)
+tssteamdtnk:
+	Inherits: ^TankTS
+	Inherits: ^BiologicalDriver
+	Inherits: ^PrioAntiHeavy
+	Buildable:
+		Queue: Vehicle, Vehicle.Multi
+		BuildPaletteOrder: 70
+		Prerequisites: ~vehicles.steam
+		Description: A fist tiberium war tank, recovered by Forgotten from the battlefields or obandoned GDI bases, forgotten can use this with GDI Doctrine
+		IconPalette: chromets
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Desintegrator Tank
+		GenericName: Tank
+	Health:
+		HP: 45000
+	Mobile:
+		Speed: 82
+	Turreted:
+		TurnSpeed: 48
+		Offset: -111,0,10
+	Armament:
+		Weapon: TSRadiationLaserTank
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 720,0,80
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+
+tssteamart:
+	Inherits: ^VehicleTS
+	Inherits: ^BiologicalDriver
+	Inherits: ^PrioArtillery
+	Buildable:
+		Queue: Vehicle, Vehicle.Multi
+		BuildPaletteOrder: 80
+		Prerequisites: dome, ~vehicles.soviet
+		Description: Long-range rocket artillery.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Mortar Truck
+	Health:
+		HP: 15000
+	Mobile:
+		Speed: 68
+	Armament:
+		Weapon: TSContaminationMortar
+		ReloadingCondition: reloading
+		LocalOffset: 11,0,400
+	AutoTarget:
+		ScanRadius: 10
+	AttackFrontal:
+		TargetFrozenActors: True
+		ForceFireIgnoresActors: True
+		PauseOnCondition: empdisable || being-warped
+		FacingTolerance: 0
+	WithFacingSpriteBody:
+		RequiresCondition: !reloading
+		Name: loaded
+	WithFacingSpriteBody@EMPTY:
+		RequiresCondition: reloading
+		Sequence: empty-idle
+		Name: reloading
+	Explodes:
+		Weapon: BarrelExplode
 ###################################################
 #               Generation 3 of CNC (Unused yet)
 ###################################################
