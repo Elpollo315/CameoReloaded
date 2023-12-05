@@ -20,6 +20,7 @@ Speech:
 		reaper: s_
 		traveler: s_
 		harbinger: s_
+		cabal: n2_
 	Notifications:
 		AbombAvailable: aavail1
 		AbombLaunchDetected: alaunch1

@@ -14,6 +14,15 @@
 	GrantConditionOnPrerequisite@keeperunlock:
 		Condition: keeperunlock
 		Prerequisites: vehicle.tskeeper
+^TSBuildingNod:
+	Inherits: ^TSBuilding
+	SpawnActorsOnSell:
+		ActorTypes: tse1.nod,tse1.nod,tse1.nod,tse1.nod,tse1.nod,tse1.nod,tse1.nod,tse1.nod,tse1.nod,tse1.nod,tsctech,tsctech,tsctech,tsctech,tsctech,tsctech,tsctech,tsctech,tsengineer.nod
+
+^TSBuildingCABAL:
+	Inherits: ^TSBuilding
+	SpawnActorsOnSell:
+		ActorTypes: tscyborg2,tscyborg2,tscyborg2,tscyborg2,tscyborg2,tscyborg2,tscyborg2,tscyborg2,tscyborg2,tscyborg2,tsctech,tsctech,tsctech,tsctech,tsctech,tsctech,tsctech,tsctech,tscengineer
 
 ^TSBuildingForgotten:
 	Inherits: ^TSBuilding
@@ -56,20 +65,20 @@ World:
 		Class: none
 		ClassName: MCV Only
 		Factions: forgotten
-		BaseActor: tsmcv.gdi
+		BaseActor: tsmcv.forgotten
 
 	StartingUnits@defaultforgotten:
 		Class: light
 		ClassName: Light Support
 		Factions: forgotten
-		BaseActor: tsmcv.gdi
+		BaseActor: tsmcv.forgotten
 		SupportActors: tsmutant,tsmutant,tsmutant,tsmutant,tsmutant,tsmutant3,tsmutant3,tscarf
 
 	StartingUnits@heavyforgotten:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: forgotten
-		BaseActor: tsmcv.gdi
+		BaseActor: tsmcv.forgotten
 		SupportActors: tsmutant,tsmutant,tsmutant,tsmutant,tsmutant3,tsmutant3,tscarf,ts1tnk,ts2tnk
 
   	FactionCA@cabal:
@@ -1034,6 +1043,315 @@ tsgtdept.gdi:
 	RenderSprites:
 		Image: tsgtdept.gdi
 
+tsntpuls.gdi:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@SHAPE: ^2x2Shape
+	Inherits: ^TSBuilding
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: E.M. Pulse Cannon
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 110
+		Prerequisites: ~structures.tsgdi, anyhq
+		Description: Disables mechanical units in an area.\nRequires power to operate.
+		IconPalette: chromets
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		RealignDelay: -1
+	AttackTurreted:
+		RequiresCondition: !build-incomplete && !empdisable && !disabled
+	Armament:
+		Weapon: TSEMPulseCannon
+		LocalOffset: 212,0,1768
+		LocalYaw: 0,100
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+		Sequence: turret
+	Power:
+		Amount: -150
+	ProvidesPrerequisite@gdi:
+		ResetOnOwnerChange: true
+	AttackOrderPower:
+		OrderName: tsemppulse
+		PauseOnCondition: empdisable || disabled
+		Cursor: empmissile
+		Icon: tsemp
+		IconPalette: chromets
+		ChargeInterval: 3375
+		Name: E.M. Pulse
+		Description: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSpeechNotification: EMMissileReady
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeTextNotification: EMP cannon ready.
+		SelectTargetTextNotification: Select target.
+
+
+tsgtplug:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@SHAPE: ^3x2Shape
+	Inherits: ^TSBuilding
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: GDI Upgrade Center
+	Buildable:
+		BuildPaletteOrder: 110
+		Prerequisites: proc, tsgttech, ~structures.tsgdi
+		Queue: Building
+		Description: Can be upgraded for additional technology.
+		IconPalette: chromets
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	WithIdleOverlay@DISH:
+		RequiresCondition: !build-incomplete
+		PauseOnCondition: disabled || empdisable
+		Sequence: idle-dish
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled && !empdisable
+		Sequence: idle-lights-bright
+	WithIdleOverlay@STRIP:
+		RequiresCondition: !build-incomplete && !disabled && !empdisable
+		Sequence: idle-strip
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+		MaxHeightDelta: 3
+	IonCannonPower:
+		Cursor: ioncannon
+		PauseOnCondition: disabled || empdisable
+		RequiresCondition: plug.ioncannona || plug.ioncannonb
+		Icon: tsioncannon
+		IconPalette: chromets
+		Effect: explosion
+		EffectPalette: tseffect
+		EffectSequence: tsionring
+		Weapon: TSIonCannon
+		WeaponDelay: 0
+		ChargeInterval: 6750
+		Name: Ion Cannon
+		Description: Initiate an Ion Cannon strike.\nApplies instant damage to a small area.
+		EndChargeSpeechNotification: IonCannonReady
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeTextNotification: Ion cannon ready.
+		SelectTargetTextNotification: Select target.
+		DisplayRadarPing: True
+		CameraActor: camera
+	DropPodsPower:
+		Cursor: ioncannon
+		PauseOnCondition: disabled || empdisable
+		RequiresCondition: plug.droppoda || plug.droppodb
+		Icon: tsdroppods
+		Name: Drop Pods
+		Description: Drop Pod reinforcements.\nSmall team of elite soldiers orbital drops\nto target location.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		DisplayRadarPing: true
+		ChargeInterval: 5000
+		UnitTypes: tspode1, tspode2
+		CameraActor: camera
+		EntryEffect: tspodring
+		IconPalette: chromets
+		EntryEffectPalette: tseffect
+		OrderName: HunterSeekers
+	ProduceActorPower:
+		PauseOnCondition: disabled || empdisable
+		RequiresCondition: plug.hunterseekera || plug.hunterseekerb
+		Name: Hunter Seeker
+		Description: Releases a drone that will acquire and destroy an enemy target.
+		Icon: tshunterseeker
+		IconPalette: chromets
+		Actors: tshunter, tshunter
+		Type: HunterSeeker
+		ChargeInterval: 8000
+		IncomingSound: hunter2.aud
+		LaunchSound: hunter2.aud
+		ReadyAudio: Reinforce
+	Production:
+		Produces: HunterSeeker
+		PauseOnCondition: empdisable
+	Exit@1:
+	ExitsDebugOverlay:
+	SupportPowerChargeBar:
+	Power:
+		Amount: -150
+	Power@ioncannon:
+		RequiresCondition: plug.ioncannona || plug.ioncannonb
+		Amount: -100
+	Power@hunterseeker:
+		RequiresCondition: plug.hunterseekera || plug.hunterseekerb
+		Amount: -50
+	Power@droppod:
+		RequiresCondition: plug.droppoda || plug.droppodb
+		Amount: -20
+	Pluggable@pluga:
+		Offset: 0,2
+		Conditions:
+			plug.ioncannon: plug.ioncannona
+			plug.hunterseeker: plug.hunterseekera
+			plug.droppod: plug.droppoda
+		Requirements:
+			plug.ioncannon: !build-incomplete && !plug.ioncannonb && !plug.ioncannona && !plug.hunterseekera && !plug.droppoda
+			plug.hunterseeker: !build-incomplete && !plug.hunterseekerb && !plug.ioncannona && !plug.hunterseekera && !plug.droppoda
+			plug.droppod: !build-incomplete &&  !plug.droppodb && !plug.ioncannona && !plug.hunterseekera && !plug.droppoda
+		EditorOptions:
+			plug.ioncannon: Ion Cannon
+			plug.hunterseeker: Hunter Seeker
+			plug.droppod: Drop Pod Reinforcements
+	WithIdleOverlay@ioncannona:
+		RequiresCondition: !build-incomplete && plug.ioncannona
+		PauseOnCondition: disabled
+		Sequence: idle-ioncannona
+	WithIdleOverlay@hunterseekera:
+		RequiresCondition: !build-incomplete && plug.hunterseekera
+		PauseOnCondition: disabled
+		Sequence: idle-hunterseekera
+		IsPlayerPalette: True
+	WithIdleOverlay@hunterseekera-bright:
+		RequiresCondition: !build-incomplete && plug.hunterseekera
+		PauseOnCondition: disabled
+		Sequence: idle-hunterseekera-bright
+	WithIdleOverlay@droppoda:
+		RequiresCondition: !build-incomplete && plug.droppoda
+		PauseOnCondition: disabled
+		Sequence: idle-droppoda
+		IsPlayerPalette: True
+	WithIdleOverlay@droppoda-bright:
+		RequiresCondition: !build-incomplete && plug.droppoda
+		PauseOnCondition: disabled
+		Sequence: idle-droppoda-bright
+	Pluggable@plugb:
+		Offset: 1,2
+		Conditions:
+			plug.ioncannon: plug.ioncannonb
+			plug.hunterseeker: plug.hunterseekerb
+			plug.droppod: plug.droppodb
+		Requirements:
+			plug.ioncannon: !build-incomplete && !plug.ioncannona && !plug.ioncannonb && !plug.hunterseekerb && !plug.droppodb
+			plug.hunterseeker: !build-incomplete && !plug.hunterseekera && !plug.ioncannonb && !plug.hunterseekerb && !plug.droppodb
+			plug.droppod: !build-incomplete && !plug.droppoda && !plug.ioncannonb && !plug.hunterseekerb  && !plug.droppodb
+		EditorOptions:
+			plug.ioncannon: Ion Cannon
+			plug.hunterseeker: Hunter Seeker
+			plug.droppod: Drop Pod Reinforcements
+	WithIdleOverlay@ioncannonb:
+		RequiresCondition: !build-incomplete && plug.ioncannonb
+		PauseOnCondition: disabled
+		Sequence: idle-ioncannonb
+	WithIdleOverlay@hunterseekerb:
+		RequiresCondition: !build-incomplete && plug.hunterseekerb
+		PauseOnCondition: disabled
+		Sequence: idle-hunterseekerb
+		IsPlayerPalette: True
+	WithIdleOverlay@hunterseekerb-bright:
+		RequiresCondition: !build-incomplete && plug.hunterseekerb
+		PauseOnCondition: disabled
+		Sequence: idle-hunterseekerb-bright
+	WithIdleOverlay@droppodb:
+		RequiresCondition: plug.droppodb
+		PauseOnCondition: disabled
+		Sequence: idle-droppodb
+		IsPlayerPalette: True
+	WithIdleOverlay@droppodb-bright:
+		RequiresCondition: plug.droppodb
+		PauseOnCondition: disabled
+		Sequence: idle-droppodb-bright
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@pluggableion:
+		RequiresCondition: !plug.ioncannona && !plug.ioncannonb
+		Prerequisite: gaplug.socket.ioncannon
+	ProvidesPrerequisite@pluggablehunter:
+		RequiresCondition: !plug.hunterseekera && !plug.hunterseekerb
+		Prerequisite: gaplug.socket.hunterseeker
+
+GAPLUG.SOCKET.IONCANNON:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: GDI Upgrade Center socket
+
+GAPLUG.SOCKET.HUNTERSEEKER:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: GDI Upgrade Center socket
+
+tsgtplug2:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Seeker Control
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 110
+		Prerequisites: gaplug.socket.hunterseeker, tsgttech, tsgtweap, ~structures.tsgdi
+		Description: Enables use of the hunter-seeker droid.
+		IconPalette: chromets
+	Plug:
+		Type: plug.hunterseeker
+	Power:
+		Amount: -50
+	RenderSprites:
+		PlayerPalette: playerts
+
+tsgtplug3:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Ion Cannon Uplink
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 120
+		Prerequisites: gaplug.socket.ioncannon, tsgttech, ~structures.tsgdi
+		Description: Enables use of the Ion Cannon.
+		IconPalette: chromets
+	Plug:
+		Type: plug.ioncannon
+	Power:
+		Amount: -100
+	RenderSprites:
+		PlayerPalette: playerts
+
+
+tsgtplug4:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Drop Pod Node
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 180
+		Prerequisites: tsgtplug, tsgttech, ~structures.tsgdi
+		Description: Enables use of the Drop Pod Reinforcements.
+		IconPalette: chromets
+	Plug:
+		Type: plug.droppod
+	Power:
+		Amount: -20
+	RenderSprites:
+		PlayerPalette: playerts
+
+
 ###################################################
 #               Nod
 ###################################################
@@ -1048,7 +1366,7 @@ tsntpowr:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 10
@@ -1078,7 +1396,7 @@ tsntpowr:
 		RequiresCondition: !build-incomplete && !empdisable
 		Sequence: idle-lights-bright
 	Power:
-		Amount: 100
+		Amount: 120
 		RequiresCondition: !empdisable
 	Targetable:
 		TargetTypes: Ground, Building, C4, SpyInfiltrate
@@ -1089,7 +1407,7 @@ tsntapwr:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^3x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 70
@@ -1119,7 +1437,7 @@ tsntapwr:
 		RequiresCondition: !build-incomplete && !empdisable
 		Sequence: idle-lights-bright
 	Power:
-		Amount: 200
+		Amount: 250
 		RequiresCondition: !empdisable
 	Targetable:
 		TargetTypes: Ground, Building, C4, SpyInfiltrate
@@ -1132,7 +1450,7 @@ tsnthand:
 	Inherits@shape: ^2x2Shape
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@InfantryProduction: ^InfantryProduction
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -1217,7 +1535,7 @@ tsntweap:
 	Inherits@shape: ^3x2Shape
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@VehicleProduction: ^VehicleProduction
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1284,7 +1602,7 @@ tsnthpad:
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@AIRCRAFTREPAIR: ^RepairsAircraftWithRepairBay
 	Inherits@AirProd: ^AircraftProduction
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1334,7 +1652,7 @@ tsntradr:
 	Inherits: ^TechLevelBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Inherits: ^RadarStation
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 40
@@ -1379,7 +1697,7 @@ tsnttech:
 	Inherits: ^Tier3Tech
 	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -1416,7 +1734,7 @@ tsntlasr:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetGround
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1426,6 +1744,7 @@ tsntlasr:
 		Prerequisites: barracks, ~structures.tsnod
 		BuildPaletteOrder: 90
 		Description: Basic base defense.\nRequires power to operate.\n  Strong vs Ground units\n  Weak vs Aircraft
+		IconPalette: chromets
 	Health:
 		HP: 70000
 	Armor:
@@ -1457,7 +1776,7 @@ tsntobel:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@SHAPE: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1467,6 +1786,7 @@ tsntobel:
 		BuildPaletteOrder: 160
 		Prerequisites: tech, ~structures.tsnod
 		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs Ground units\n  Weak vs Aircraft
+		IconPalette: chromets
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1501,7 +1821,7 @@ tsntsam:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetAir
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1511,6 +1831,7 @@ tsntsam:
 		Prerequisites: anyhq, ~structures.tsnod
 		BuildPaletteOrder: 100
 		Description: Nod Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+		IconPalette: chromets
 	Health:
 		HP: 60000
 	Armor:
@@ -1537,7 +1858,7 @@ tsntsam:
 tsgtsilo.nod:
 	Inherits: ^Building
 	Inherits@SHAPE: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingNod
 	Buildable:
 		Queue: Defense
 		Prerequisites: proc, ~structures.sharedcabal
@@ -1589,9 +1910,291 @@ tsproc.nod:
 	FreeActor:
 		Actor: tsharv.nod
 
+tsntpuls.nod:
+	Inherits: tsntpuls.gdi
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: E.M. Pulse Cannon
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 110
+		Prerequisites: ~structures.tsnod, anyhq
+
+
+tsnttmpl:
+	Inherits: ^Building
+	Inherits@IDISABLED: ^DisableOnLowPowerOrPowerDown
+	Inherits@SHAPE: ^4x3Shape
+	Inherits: ^TSBuildingNod
+	HitShape:
+		TargetableOffsets: -1280,363,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 110
+		Prerequisites: tsnttech, ~structures.tsnod
+		Description: Provides access to advanced Nod technologies.
+		IconPalette: chromets
+	ProvidesPrerequisite@buildingname:
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Temple of Nod
+	Building:
+		Footprint: xxxx xxxx xxxX
+		Dimensions: 4,3
+	RequiresBuildableArea:
+		Adjacent: 3
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+		MaxHeightDelta: 3
+	Power:
+		Amount: -200
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights-bright
+	ProduceActorPower:
+		PauseOnCondition: disabled || empdisable
+		Name: Hunter Seeker
+		Description: Releases a drone that will acquire and destroy an enemy target.
+		Icon: tshunterseeker
+		IconPalette: chromets
+		Actors: tshunternod, tshunternod
+		Type: HunterSeeker
+		ChargeInterval: 8000
+		IncomingSound: hunter2.aud
+		LaunchSound: hunter2.aud
+		ReadyAudio: Reinforce
+		OrderName: HunterSeekers
+	Production:
+		Produces: HunterSeeker
+		PauseOnCondition: empdisable
+	Exit@1:
+	ExitsDebugOverlay:
+	SupportPowerChargeBar:
+	Exit@1:
+	ExitsDebugOverlay:
+
+tsntmisl:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@SHAPE: ^2x2Shape
+	Inherits: ^TSBuildingNod
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 120
+		Prerequisites: tsnttech, ~structures.tsnod
+		BuildLimit: 1
+		Description: Launches a devastating missile\nat a target location.\nRequires power to operate.\nMaximum 1 can be built.
+		IconPalette: chromets
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Nod Missile Silo
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights-bright
+	Power:
+		Amount: -50
+	ProvidesPrerequisite@buildingname:
+	SupportPowerChargeBar:
+	NukePower:
+		OrderName: ClusterMissile
+		PauseOnCondition: empdisable || disabled
+		Cursor: nuke
+		Icon: tsclustermissile
+		IconPalette: chromets
+		ChargeInterval: 7500
+		Name: Cluster Missile
+		Description: Launches an explosive cluster warhead\nat a target location.
+		BeginChargeSpeechNotification: AbombPrepping
+		EndChargeSpeechNotification: AbombReady
+		SelectTargetSpeechNotification: SelectTarget
+		IncomingSpeechNotification: AbombLaunchDetected
+		EndChargeTextNotification: Cluster missile ready.
+		SelectTargetTextNotification: Select target.
+		IncomingTextNotification: Missile launch detected.
+		LaunchSound: icbm1.aud
+		MissileWeapon: TSClusterMissile
+		MissileImage: tsclustermissile
+		MissilePalette: tseffect
+		MissileDelay: 18
+		DetonationAltitude: 5c0
+		SpawnOffset: 0, 0c128, 0c512
+		DisplayTimerRelationships: None
+		DisplayBeacon: False
+		DisplayRadarPing: True
+		BeaconPoster:
+		CameraRange: 10c0
+		FlightVelocity: 1c0
+		TrailImage: tssmall_smoke_trail
+		TrailInterval: 0
+		TrailSequences: idle
+		TrailPalette: tseffect
+	WithSupportPowerActivationOverlay:
+		IsPlayerPalette: True
+	WithSupportPowerActivationOverlay@BRIGHT:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-lights-bright
+
+tsntwast:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^4x2Shape
+	Inherits: ^TSBuildingNod
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 512, 1536
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Waste Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 130
+		Prerequisites: tsnttech, ~structures.tsnod
+		BuildLimit: 1
+		Description: Processes Veins\ninto useable resources.\nMaximum 1 can be built.
+	Building:
+		Footprint: Xx+ xx+ Xx+
+		Dimensions: 3,3
+	Health:
+		HP: 40000
+	RevealsShroud:
+		Range: 6c0
+		MaxHeightDelta: 3
+	StoresResources:
+		Capacity: 56
+	Power:
+		Amount: -40
+	WithIdleOverlay@GLOW:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-glow
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights-bright
+	WithIdleOverlay@BIB:
+		RequiresCondition: !build-incomplete
+		Sequence: bib
+	ProvidesPrerequisite@buildingname:
+	NukePower:
+		OrderName: ChemicalMissile
+		PauseOnCondition: empdisable || disabled
+		Cursor: nuke
+		Icon: tsclustermissile
+		IconPalette: chromets
+		ChargeInterval: 7500
+		Name: Chemical Missile
+		Description: Launches an explosive cluster warhead\nat a target location.
+		BeginChargeSpeechNotification: AbombPrepping
+		EndChargeSpeechNotification: AbombReady
+		SelectTargetSpeechNotification: SelectTarget
+		IncomingSpeechNotification: AbombLaunchDetected
+		EndChargeTextNotification: Cluster missile ready.
+		SelectTargetTextNotification: Select target.
+		IncomingTextNotification: Missile launch detected.
+		LaunchSound: icbm1.aud
+		MissileWeapon: TSChemicalMissile
+		MissileImage: tsclustermissile
+		MissilePalette: tseffect
+		MissileDelay: 18
+		DetonationAltitude: 5c0
+		SpawnOffset: 0, 0c128, 0c512
+		DisplayTimerRelationships: None
+		DisplayBeacon: False
+		DisplayRadarPing: True
+		BeaconPoster:
+		CameraRange: 10c0
+		FlightVelocity: 1c0
+		TrailImage: tssmall_smoke_trail
+		TrailInterval: 0
+		TrailSequences: idle
+		TrailPalette: tseffect
+	SupportPowerChargeBar:
 ###################################################
 #               Forgotten
 ###################################################
+tsmacnst.forgotten:
+	Inherits: tsgtcnst
+	Transforms:
+		IntoActor: tsmcv.forgotten
+	RenderSprites:
+		Image: tsmacnst
+
+tsctwshop:
+	Inherits: ^Building
+	Inherits@shape: ^3x2Shape
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits: ^TSBuildingForgotten
+	Inherits@VehicleProduction: ^VehicleProduction
+	Valued:
+		Cost: 1250
+	Tooltip:
+		Name: Vehicle Shop
+	ProvidesPrerequisite@factory:
+		Prerequisite: factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: tsmaproc.forgot, ~structures.forgotten
+		Description: Produces vehicles.
+		IconPalette: chromets
+	Building:
+		Footprint: xxX+ xxX+ xxX+
+		Dimensions: 4,3
+	Health:
+		HP: 100000
+	RevealsShroud:
+		Range: 4c0
+		MaxHeightDelta: 3
+	Armor:
+		Type: Heavy
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -384,-500,0
+		ExitCell: 3,1
+		ExitDelay: 5
+	ExitsDebugOverlay:
+	WithIdleOverlay@ROOF:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !build-incomplete
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@forgotten:
+		Prerequisite: vehicles.forgotten.low
+	InfiltrateForSupportPower:
+		Proxy: vehicles.upgraded
+		Types: SpyInfiltrate
+	InfiltrateForSupportPower@veh:
+		Types: SabInfiltrate
+		Proxy: veh.soviet.stolen
+
+
 tsmaweap:
 	Inherits: ^Building
 	Inherits@shape: ^3x2Shape
@@ -1607,7 +2210,7 @@ tsmaweap:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 50
-		Prerequisites: tsmaproc.forgot, ~structures.forgotten
+		Prerequisites: tsmaproc.forgot, ~structures.forgotten, ~vehicles.forgotten.low
 		Description: Produces vehicles.
 		IconPalette: chromets
 	Building:
@@ -1806,6 +2409,7 @@ tsflam:
 		BuildPaletteOrder: 70
 		Prerequisites: tsmilp, ~structures.forgotten
 		Description: Adapted thr Flame tank weapon, and attached to a turret, effective vs infantries
+		IconPalette: chromets
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -2196,28 +2800,25 @@ tscalifeform:
 	Power:
 		Amount: -150
 	ProvidesPrerequisite@buildingname:
-	ParatroopersPower@Creature:
-		OrderName: mutatelife
-		Prerequisites: ~structures.forgotten
-		Icon: stormtroopers
-		ChargeInterval: 9000
-		Name: Creature Mutate
-		Description: A Badger drops a squad of mercenaries\nanywhere on the map.
-		SquadSize: 3
-		SquadOffset: 0,1792,0
-		DropItems: tsdoggie,tsdoggie,tsdoggie,tsdoggieblue,tsdoggieblue,tsparasuar
-		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
-		SelectTargetSpeechNotification: SelectTarget
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: pinficon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		UseDirectionalTarget: True
-		DirectionArrowAnimation: paradirection
+	ProduceActorPower:
+		PauseOnCondition: disabled || empdisable
+		Name: Creatures
+		Description: Releases a drone that will acquire and destroy an enemy target.
+		Icon: tshunterseeker
+		IconPalette: chromets
+		Actors: tsdoggie, tsdoggie, tsdoggie, tsdoggie, tsdoggie, tsdoggie
+		Type: Creature
+		ChargeInterval: 8000
+		IncomingSound: hunter2.aud
+		LaunchSound: hunter2.aud
+		ReadyAudio: Reinforce
+		OrderName: Creatures
+	Production:
+		Produces: Creature
+		PauseOnCondition: empdisable
+	Exit@1:
+	ExitsDebugOverlay:
+	SupportPowerChargeBar:
 tsmutantmercenary:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
@@ -2268,6 +2869,46 @@ tsmutantmercenary:
 		CircleSequence: circles
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
+tsgtsilo.forgotten:
+	Inherits: ^Building
+	Inherits@SHAPE: ^2x2Shape
+	Inherits: ^TSBuilding
+	Buildable:
+		Queue: Defense
+		Prerequisites: tsmaproc.forgot, ~structures.forgotten
+		BuildPaletteOrder: 60
+		Description: Stores excess Tiberium.
+		IconPalette: chromets
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Silo
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	-GivesBuildableArea:
+	Health:
+		HP: 30000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+		MaxHeightDelta: 3
+	WithResourceLevelOverlay@FILLSTAGE:
+		RequiresCondition: !build-incomplete
+		Sequence: stages
+	WithSpriteBody:
+		Sequence: idle-underlay
+	StoresResources:
+		Capacity: 1500
+	Power:
+		Amount: -10
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-yellow
+
 ###################################################
 #               Steampunk
 ###################################################
@@ -2448,7 +3089,7 @@ tscrys:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 10
@@ -2489,7 +3130,7 @@ tscrys.laser:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@SHAPE: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2541,7 +3182,7 @@ tscybbar:
 	Inherits@shape: ^2x2Shape
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@InfantryProduction: ^InfantryProduction
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -2630,7 +3271,7 @@ tsmechfact:
 	Inherits@shape: ^3x2Shape
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@VehicleProduction: ^VehicleProduction
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2681,7 +3322,7 @@ tscore:
 	Inherits: ^Tier3Tech
 	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^3x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -2716,13 +3357,31 @@ tscore:
 	Power:
 		Amount: -150
 	ProvidesPrerequisite@buildingname:
-
+	ProduceActorPower:
+		PauseOnCondition: disabled || empdisable
+		Name: Hunter Seeker
+		Description: Releases a drone that will acquire and destroy an enemy target.
+		Icon: tshunterseeker
+		IconPalette: chromets
+		Actors: tshunternod, tshunternod
+		Type: HunterSeeker
+		ChargeInterval: 8000
+		IncomingSound: hunter2.aud
+		LaunchSound: hunter2.aud
+		ReadyAudio: Reinforce
+		OrderName: HunterSeekers
+	Production:
+		Produces: HunterSeeker
+		PauseOnCondition: empdisable
+	Exit@1:
+	ExitsDebugOverlay:
+	SupportPowerChargeBar:
 tsobl2:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@SHAPE: ^1x1Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -2766,7 +3425,7 @@ tsobl3:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@SHAPE: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2810,7 +3469,7 @@ tskpr:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^3x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 70
@@ -2853,7 +3512,7 @@ tsgtfort:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@SHAPE: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Valued:
 		Cost: 650
 	Tooltip:
@@ -2897,7 +3556,7 @@ tsctradr:
 	Inherits: ^TechLevelBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Inherits: ^RadarStation
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 40
@@ -2942,7 +3601,7 @@ tscttech:
 	Inherits: ^Tier3Tech
 	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^2x2Shape
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -2981,7 +3640,7 @@ tscthpad:
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@AIRCRAFTREPAIR: ^RepairsAircraftWithRepairBay
 	Inherits@AirProd: ^AircraftProduction
-	Inherits: ^TSBuilding
+	Inherits: ^TSBuildingCABAL
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3026,6 +3685,16 @@ tscthpad:
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@cabal:
 		Prerequisite: aircraft.cabal
+tsntpuls.cabal:
+	Inherits: tsntpuls.gdi
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: E.M. Pulse Cannon
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 110
+		Prerequisites: ~structures.cabal, anyhq
 ###################################################
 #               Civilian
 ###################################################

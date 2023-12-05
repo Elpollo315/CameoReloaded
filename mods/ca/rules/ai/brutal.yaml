@@ -375,7 +375,7 @@ Player:
 		SquadValueRandomBonus: 2500
 		SquadSize: 22
 		SquadSizeRandomBonus: 9
-		ExcludeFromSquadsTypes: harv, har2, harv.scrin, harv.chrono, chharv, chnmcv, mcv, amcv, smcv, dog, e6, n6, s6, mcv.camea, harv.camea, tsengineer.gdi, tsharv.gdi, tsharv.nod, tsengineer.nod, tsmcv.gdi, tsmcv.nod, tsharv.forgotten, tswinif, tscengie, tsharv.cabal, tscengineer
+		ExcludeFromSquadsTypes: harv, har2, harv.scrin, harv.chrono, chharv, chnmcv, mcv, amcv, smcv, dog, e6, n6, s6, mcv.camea, harv.camea, tsengineer.gdi, tsharv.gdi, tsharv.nod, tsengineer.nod, tsmcv.gdi, tsmcv.nod, tsharv.forgotten, tswinif, tscengie, tsharv.cabal, tscengineer, tsharv.forgotten2
 		ExcludeFromAirSquadsTypes: deva, pac, jjet, bjet
 		NavalUnitsTypes: ss,msub,dd,ca,lst,pt,dd2,pt2,ss2,isub,sb,seas
 		NavalProductionTypes: syrd, spen, syrd.gdi, spen.nod, chsyrd

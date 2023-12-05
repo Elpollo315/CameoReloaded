@@ -85,6 +85,12 @@ Terrain:
 		Type: Ford
 		TargetTypes: Ground
 		Color: B09C78
+	TerrainType@Subterranean:
+		Type: Subterranean
+		Color: 745537
+	TerrainType@Jumpjet:
+		Type: Jumpjet
+		Color: C7C9FA
 
 Templates:
 	Template@255:

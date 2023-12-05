@@ -244,6 +244,132 @@ commander_tree.tsnod.tsfusion:
 		Image: tsfusion
 	ProvidesPrerequisite@1:
 		Prerequisite: vehicle.tsfusion
+commander_tree.tsnod.tsart2.ranged:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Artillery (Ranged)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 20
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsart2.cluster
+		Description: upgrades to longer range the Artillerys, the double than a normal
+	RenderSprites:
+		Image: tsart2.ranged
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsart2.ranged
+
+commander_tree.tsnod.tsart2.cluster:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Artillery (Cluster)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 20
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsart2.ranged
+		Description: artillery uses cluster ammo
+	RenderSprites:
+		Image: tsart2.cluster
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsart2.cluster
+
+commander_tree.tsnod.tsstnk.sting:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Stealth Tank (Sting Missile)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 22
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsstnk.burst
+		Description: Stealth Tank has very fast AP missiles
+	RenderSprites:
+		Image: tsstnk.sting
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsstnk.sting
+
+commander_tree.tsnod.tsstnk.burst:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Stealth Tank (Misile Barrage)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 22
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsstnk.sting
+		Description: Stealth Tank shoots faster and more missiles
+	RenderSprites:
+		Image: tsstnk.burst
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsstnk.burst
+
+commander_tree.tsnod.tsbike.sting:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Attack Cycle (Sting Missile)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 20
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsbike.burst
+		Description: Attack Cycle has very fast AP missiles
+	RenderSprites:
+		Image: tsbike.sting
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsbike.sting
+
+commander_tree.tsnod.tsbike.burst:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Attack Cycle (Burst Missiles)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 20
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsbike.sting
+		Description: Attack Cycle shoots faster and more missiles
+	RenderSprites:
+		Image: tsbike.burst
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsbike.burst
+commander_tree.tsnod.tsscrin.emp:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Aircraft: Banshee Fighter (EMP)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 20
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsscrin.trishot
+		Description: Attack Cycle shoots faster and more missiles
+	RenderSprites:
+		Image: tsscrin.emp
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsscrin.emp
+
+commander_tree.tsnod.tsscrin.trishot:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Aircraft: Banshee Fighter (Fragments)
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 20
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.tsnod, ~!vehicle.tsscrin.emp
+		Description: Attack Cycle shoots faster and more missiles
+	RenderSprites:
+		Image: tsscrin.trishot
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsscrin.trishot
 commander_tree.forgotten.doctrine.gdi:
 	Inherits: ^default.commander_tree_item
 	Tooltip:
@@ -396,6 +522,22 @@ commander_tree.forgotten.tspickf:
 		Image: tspickf
 	ProvidesPrerequisite@1:
 		Prerequisite: vehicle.tspickf
+
+commander_tree.forgotten.tsharv2:
+	Inherits: ^default.commander_tree_item
+	Tooltip:
+		Name: Vehicle: Armed Harvester
+	Buildable:
+		Queue: Commander_Tree
+		IconPalette: chromets
+		BuildPaletteOrder: 5
+		ForceIconLocation: true
+		Prerequisites: prerequisite.has_points, ~structures.forgotten
+		Description: Siege vehicle, can be deployed in artillery mode
+	RenderSprites:
+		Image: tsharv.forgotten2
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicle.tsarmedharv2
 
 
 commander_tree.cabal.crossed:

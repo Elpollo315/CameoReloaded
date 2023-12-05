@@ -131,6 +131,7 @@ Terrain:
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
 		Color: 685062
+
 Templates:
 	Template@0:
 		Images: bloxbase.shp

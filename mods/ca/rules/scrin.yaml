@@ -3371,7 +3371,6 @@ REA2:
 		HP: 70000
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: 200
 		RequiresCondition: !disabled && !forceshield && !being-warped
@@ -3381,7 +3380,8 @@ REA2:
 	ScalePowerWithHealth:
 	InfiltrateForPowerOutage:
 		Types: SpyInfiltrate, PowerInfiltrate
-
+	RenderSprites:
+		PlayerPalette: playerts
 PROC.SCRIN:
 	Inherits: ^ScrinBuilding
 	Inherits@shape: ^3x3Shape
@@ -3417,7 +3417,6 @@ PROC.SCRIN:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	Targetable:
 		TargetTypes: Ground, Structure, C4, DetonateAttack, ThiefInfiltrate
 	Refinery:
@@ -3437,7 +3436,8 @@ PROC.SCRIN:
 	ProvidesPrerequisite@buildingname:
 	SpawnActorsOnSell:
 		ActorTypes: proc.dummy, s1, s1, s1, s1, s1, s1, s1, s1
-
+	RenderSprites:
+		PlayerPalette: playerts
 PORT:
 	Inherits: ^ScrinBuilding
 	Inherits@shape: ^2x2Shape
@@ -3743,7 +3743,6 @@ NERV:
 	RevealsShroud@GAPGEN:
 		Range: 6c0
 		RequiresCondition: !disabled
-	WithBuildingBib:
 	InfiltrateForExploration:
 		Types: SpyInfiltrate, SabInfiltrate
 	Power:
@@ -3844,7 +3843,8 @@ NERV:
 		DisplayRadarPing: True
 		EffectSequence: idle
 	Exit:
-
+	RenderSprites:
+		PlayerPalette: playerts
 SCRT:
 	Inherits: ^ScrinBuilding
 	Inherits: ^TechLevelBuilding
@@ -4066,8 +4066,6 @@ SREP:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
-		HasMinibib: true
 	Reservable:
 	RallyPoint:
 	RepairsUnits:
@@ -4091,7 +4089,8 @@ SREP:
 	WithRangeCircle@AIRCRAFTREPAIR:
 		Color: 888899AA
 		Range: 10c0
-
+	RenderSprites:
+		PlayerPalette: playerts
 SILO.SCRIN:
 	Inherits: ^ScrinBuilding
 	Valued:
@@ -4109,11 +4108,9 @@ SILO.SCRIN:
 		HP: 30000
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
-		HasMinibib: true
 	Targetable:
 		TargetTypes: Ground, Structure, C4, DetonateAttack
-	-WithSpriteBody:
+	WithSpriteBody:
 	WithResourceLevelSpriteBody:
 		Sequence: stages
 	StoresResources:
@@ -4131,7 +4128,8 @@ SILO.SCRIN:
 		Position: BottomLeft
 		RequiresSelection: true
 		PipCount: 5
-
+	RenderSprites:
+		PlayerPalette: playerts
 MANI:
 	Inherits: ^ScrinBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
@@ -4310,18 +4308,16 @@ PTUR:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 48
 		InitialFacing: 48
 		PauseOnCondition: empdisable || being-warped
-	-WithSpriteBody:
-	WithEmbeddedTurretSpriteBody:
-		PauseOnCondition: empdisable || being-warped
+		Offset: 0,0,90
+	WithSpriteBody:
+	WithSpriteTurret:
 	Armament:
 		Weapon: PlasmaTurretGun
-		LocalOffset: 450,70,500, 450,-70,500
+		LocalOffset: 450,70,50, 450,-70,50
 		MuzzleSequence: muzzle
 		MuzzlePalette: scrin
 	AttackTurreted:
@@ -4336,6 +4332,8 @@ PTUR:
 	SpawnActorOnDeath:
 		Actor: s1
 	-SpawnRandomActorOnDeath:
+	RenderSprites:
+		PlayerPalette: playerts
 
 SHAR:
 	Inherits: ^Defense
@@ -4361,14 +4359,12 @@ SHAR:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 60
 		InitialFacing: 48
-	-WithSpriteBody:
-	WithEmbeddedTurretSpriteBody:
-		PauseOnCondition: disabled || empdisable || being-warped
+		Offset: 0,0,140
+	WithSpriteBody:
+	WithSpriteTurret:
 	Armament@PRIMARY:
 		Weapon: ShardLauncher
 		LocalOffset: 0,0,1050
@@ -4387,6 +4383,8 @@ SHAR:
 	SpawnActorOnDeath:
 		Actor: s1
 	-SpawnRandomActorOnDeath:
+	RenderSprites:
+		PlayerPalette: playerts
 
 SCOL:
 	Inherits: ^Defense

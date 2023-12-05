@@ -4,6 +4,7 @@ tc04:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 tc04.husk:
@@ -12,6 +13,7 @@ tc04.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -25,6 +27,7 @@ tc05:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 tc05.husk:
@@ -33,6 +36,7 @@ tc05.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -46,6 +50,7 @@ tc03:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 tc03.husk:
@@ -54,6 +59,7 @@ tc03.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -67,6 +73,7 @@ tc02:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 tc02.husk:
@@ -75,6 +82,7 @@ tc02.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -87,6 +95,7 @@ tc01:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 
 tc01.husk:
@@ -94,6 +103,7 @@ tc01.husk:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -111,6 +121,7 @@ t18:
 			WINTER: DESERT
 			BARREN: DESERT
 			JUNGLE: DESERT
+		Scale: 1.0
 	idle:
 
 t18.husk:
@@ -123,6 +134,7 @@ t18.husk:
 			WINTER: DESERT
 			BARREN: DESERT
 			JUNGLE: DESERT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -136,6 +148,7 @@ t17:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t17.husk:
@@ -144,6 +157,7 @@ t17.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -157,6 +171,7 @@ t16:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t16.husk:
@@ -165,6 +180,7 @@ t16.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -178,6 +194,7 @@ t15:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t15.husk:
@@ -186,6 +203,7 @@ t15.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -199,6 +217,7 @@ t14:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t14.husk:
@@ -207,6 +226,7 @@ t14.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -220,6 +240,7 @@ t13:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t13.husk:
@@ -228,6 +249,7 @@ t13.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -241,6 +263,7 @@ t12:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t12.husk:
@@ -249,6 +272,7 @@ t12.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -262,6 +286,7 @@ t11:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t11.husk:
@@ -270,6 +295,7 @@ t11.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -283,6 +309,7 @@ t10:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t10.husk:
@@ -291,6 +318,7 @@ t10.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -308,6 +336,7 @@ t09:
 			WINTER: DESERT
 			BARREN: DESERT
 			JUNGLE: DESERT
+		Scale: 1.0
 	idle:
 
 t09.husk:
@@ -320,6 +349,7 @@ t09.husk:
 			WINTER: DESERT
 			BARREN: DESERT
 			JUNGLE: DESERT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -332,6 +362,7 @@ t08:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t08.husk:
@@ -339,6 +370,7 @@ t08.husk:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -352,6 +384,7 @@ t07:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t07.husk:
@@ -360,6 +393,7 @@ t07.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -373,6 +407,7 @@ t06:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t06.husk:
@@ -381,6 +416,7 @@ t06.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -394,6 +430,7 @@ t05:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t05.husk:
@@ -402,6 +439,7 @@ t05.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -419,6 +457,7 @@ t04:
 			WINTER: DESERT
 			BARREN: DESERT
 			JUNGLE: DESERT
+		Scale: 1.0
 	idle:
 
 t04.husk:
@@ -431,6 +470,7 @@ t04.husk:
 			WINTER: DESERT
 			BARREN: DESERT
 			JUNGLE: DESERT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -444,6 +484,7 @@ t03:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t03.husk:
@@ -452,6 +493,7 @@ t03.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -465,6 +507,7 @@ t02:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t02.husk:
@@ -473,6 +516,7 @@ t02.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -486,6 +530,7 @@ t01:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 
 t01.husk:
@@ -494,6 +539,7 @@ t01.husk:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 		Start: 1
 	dead:
@@ -507,6 +553,7 @@ ice01:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Length: *
 
@@ -516,6 +563,7 @@ ice02:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Length: *
 
@@ -525,6 +573,7 @@ ice03:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Length: *
 
@@ -534,6 +583,7 @@ ice04:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Length: *
 
@@ -543,6 +593,7 @@ ice05:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle:
 		Length: *
 
@@ -552,7 +603,7 @@ v01:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
-		Scale: 2.0
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -563,7 +614,7 @@ v02:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
-		Scale: 2.0
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -574,7 +625,7 @@ v03:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
-		Scale: 2.0
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -585,7 +636,7 @@ v04:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
-		Scale: 2.0
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -596,6 +647,7 @@ v05:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -606,6 +658,7 @@ v06:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -616,6 +669,7 @@ v07:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			DESERT: TEMPERAT
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -623,6 +677,7 @@ v07:
 v08:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -630,6 +685,7 @@ v08:
 v09:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -637,6 +693,7 @@ v09:
 v10:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -644,6 +701,7 @@ v10:
 v11:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -651,6 +709,7 @@ v11:
 v12:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -658,6 +717,7 @@ v12:
 v13:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 	damaged-idle:
 		Start: 1
@@ -665,6 +725,7 @@ v13:
 v14:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 		ZOffset: -512
 	damaged-idle:
@@ -674,6 +735,7 @@ v14:
 v15:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 		ZOffset: -512
 	damaged-idle:
@@ -683,6 +745,7 @@ v15:
 v16:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 		ZOffset: -512
 	damaged-idle:
@@ -692,6 +755,7 @@ v16:
 v17:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 		ZOffset: -512
 	damaged-idle:
@@ -701,6 +765,7 @@ v17:
 v18:
 	Defaults:
 		UseTilesetExtension: true
+		Scale: 1.0
 	idle:
 		ZOffset: -512
 	damaged-idle:
@@ -710,23 +775,28 @@ v18:
 v19:
 	idle: v19
 		Length: 14
+		Scale: 1.0
 
 v19.husk:
 	idle: v19
 		Start: 28
+		Scale: 1.0
 	fire-start: flmspt
 		Length: *
 		Offset: 7,-15
 		ZOffset: 1
+		Scale: 1.0
 	fire-loop: flmspt
 		Start: 50
 		Length: *
 		Offset: 7,-15
 		ZOffset: 1
+		Scale: 1.0
 
 v20:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v20.des
 		Length: 3
 		Tick: 120
@@ -738,6 +808,7 @@ v20:
 v21:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v21.des
 		Length: 3
 		Tick: 120
@@ -749,6 +820,7 @@ v21:
 v22:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v22.des
 		Length: 3
 		Tick: 120
@@ -760,6 +832,7 @@ v22:
 v23:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v23.des
 		Length: 3
 		Tick: 120
@@ -771,6 +844,7 @@ v23:
 v24:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v24.des
 	damaged-idle: v24.des
 		Start: 1
@@ -778,6 +852,7 @@ v24:
 v25:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v25.des
 	damaged-idle: v25.des
 		Start: 1
@@ -785,6 +860,7 @@ v25:
 v26:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v26.des
 	damaged-idle: v26.des
 		Start: 1
@@ -792,6 +868,7 @@ v26:
 v27:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v27.des
 	damaged-idle: v27.des
 		Start: 1
@@ -799,6 +876,7 @@ v27:
 v28:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v28.des
 	damaged-idle: v28.des
 		Start: 1
@@ -806,6 +884,7 @@ v28:
 v29:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v29.des
 	damaged-idle: v29.des
 		Start: 1
@@ -813,6 +892,7 @@ v29:
 v30:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v30.des
 	damaged-idle: v30.des
 		Start: 2
@@ -820,6 +900,7 @@ v30:
 v31:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v31.des
 	damaged-idle: v31.des
 		Start: 1
@@ -827,6 +908,7 @@ v31:
 v32:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v32.des
 	damaged-idle: v32.des
 		Start: 1
@@ -834,6 +916,7 @@ v32:
 v33:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v33.des
 	damaged-idle: v33.des
 		Start: 1
@@ -841,6 +924,7 @@ v33:
 v34:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v34.des
 	damaged-idle: v34.des
 		Start: 1
@@ -848,6 +932,7 @@ v34:
 v35:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v35.des
 	damaged-idle: v35.des
 		Start: 1
@@ -855,6 +940,7 @@ v35:
 v36:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v36.des
 	damaged-idle: v36.des
 		Start: 1
@@ -862,6 +948,7 @@ v36:
 v37:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: v37.des
 	damaged-idle: v37.des
 		Start: 1
@@ -869,6 +956,7 @@ v37:
 rice:
 	Defaults:
 		AddExtension: false
+		Scale: 1.0
 	idle: rice.tem
 		ZOffset: -512
 	damaged-idle: rice.tem
@@ -877,113 +965,148 @@ rice:
 
 utilpol1:
 	idle: utilpol1
+		Scale: 1.0
 	damaged-idle: utilpol1
 		Start: 1
+		Scale: 1.0
 	dead: utilpol1
 		Start: 1
+		Scale: 1.0
 
 utilpol2:
 	idle: utilpol2
+		Scale: 1.0
 	damaged-idle: utilpol2
 		Start: 1
+		Scale: 1.0
 	dead: utilpol2
 		Start: 1
+		Scale: 1.0
 
 ammobox1:
 	idle: ammobox1
+		Scale: 1.0
 
 ammobox2:
 	idle: ammobox2
+		Scale: 1.0
 
 ammobox3:
 	idle: ammobox3
+		Scale: 1.0
 
 tanktrap1:
 	idle: tanktrap1
 
 tanktrap2:
 	idle: tanktrap2
+		Scale: 1.0
 
 rushouse:
 	idle: rushouse
+		Scale: 1.0
 	damaged-idle: rushouse
 		Start: 1
+		Scale: 1.0
 
 rushouse2:
 	idle: rushouse2
+		Scale: 1.0
 	damaged-idle: rushouse
 		Start: 1
+		Scale: 1.0
 
 rushouse3:
 	idle: rushouse3
+		Scale: 1.0
 	damaged-idle: rushouse
 		Start: 1
+		Scale: 1.0
 
 rushouse4:
 	idle: rushouse4
+		Scale: 1.0
 	damaged-idle: rushouse
 		Start: 1
+		Scale: 1.0
 
 asianhut:
 	idle: asianhut
+		Scale: 1.0
 	damaged-idle: asianhut
 		Start: 1
+		Scale: 1.0
 
 barb:
 	idle: barb
 		Length: 16
+		Scale: 1.0
 	damaged-idle: barb
 		Start: 16
 		Length: 16
+		Scale: 1.0
 
 wood:
 	idle: wood
 		Length: 16
+		Scale: 1.0
 	damaged-idle: wood
 		Start: 16
 		Length: 16
+		Scale: 1.0
 
 barl:
 	idle: barl
+		Scale: 1.0
 
 brl3:
 	idle: brl3
+		Scale: 1.0
 
 boxes01:
 	idle: boxes01.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes02:
 	idle: boxes02.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes03:
 	idle: boxes03.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes04:
 	idle: boxes04.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes05:
 	idle: boxes05.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes06:
 	idle: boxes06.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes07:
 	idle: boxes07.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes08:
 	idle: boxes08.int
 		AddExtension: false
+		Scale: 1.0
 
 boxes09:
 	idle: boxes09.int
 		AddExtension: false
+		Scale: 1.0
 
 rock1:
 	idle:
@@ -994,6 +1117,7 @@ rock1:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 rock2:
 	idle:
@@ -1004,6 +1128,7 @@ rock2:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 rock3:
 	idle:
@@ -1014,6 +1139,7 @@ rock3:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 rock4:
 	idle:
@@ -1024,6 +1150,7 @@ rock4:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 rock5:
 	idle:
@@ -1034,6 +1161,7 @@ rock5:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 rock6:
 	idle:
@@ -1044,6 +1172,7 @@ rock6:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 rock7:
 	idle:
@@ -1054,18 +1183,22 @@ rock7:
 			JUNGLE: TEMPERAT
 			BARREN: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 
 snowhut:
 	idle: snowhut
 		Length: 3
 		Tick: 360
+		Scale: 1.0
 	damaged-idle: snowhut
 		Start: 3
 		Tick: 120
+		Scale: 1.0
 
 lhus:
 	Defaults:
 		Offset: 0,-16
+		Scale: 1.0
 	idle: lhus
 		Length: 16
 		Tick: 180
@@ -1077,6 +1210,7 @@ lhus:
 windmill:
 	Defaults:
 		Offset: 0,-16
+		Scale: 1.0
 	idle: windmill
 		Length: 8
 		Tick: 80
@@ -1091,6 +1225,7 @@ v01.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v01
 		UseTilesetExtension: true
 
@@ -1100,6 +1235,7 @@ v02.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v02
 		UseTilesetExtension: true
 
@@ -1109,6 +1245,7 @@ v03.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v03
 		UseTilesetExtension: true
 
@@ -1118,6 +1255,7 @@ v04.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v04
 		UseTilesetExtension: true
 
@@ -1127,6 +1265,7 @@ v05.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v05
 		UseTilesetExtension: true
 
@@ -1136,6 +1275,7 @@ v06.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v06
 		UseTilesetExtension: true
 
@@ -1145,6 +1285,7 @@ v07.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v07
 		UseTilesetExtension: true
 
@@ -1154,6 +1295,7 @@ v08.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v08
 		UseTilesetExtension: true
 
@@ -1163,6 +1305,7 @@ v09.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v09
 		UseTilesetExtension: true
 
@@ -1172,6 +1315,7 @@ v10.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v10
 		UseTilesetExtension: true
 
@@ -1181,6 +1325,7 @@ v11.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v11
 		UseTilesetExtension: true
 
@@ -1190,6 +1335,7 @@ v12.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v12
 		ZOffset: -512
 		UseTilesetExtension: true
@@ -1200,6 +1346,7 @@ v13.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v13
 		ZOffset: -512
 		UseTilesetExtension: true
@@ -1210,6 +1357,7 @@ v14.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v14
 		ZOffset: -512
 		UseTilesetExtension: true
@@ -1220,6 +1368,7 @@ v15.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v15
 		ZOffset: -512
 		UseTilesetExtension: true
@@ -1230,6 +1379,7 @@ v16.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v16
 		ZOffset: -512
 		UseTilesetExtension: true
@@ -1240,6 +1390,7 @@ v17.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v17
 		ZOffset: -512
 		UseTilesetExtension: true
@@ -1250,15 +1401,19 @@ v18.husk:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 1.0
 	idle: v18
 		ZOffset: -512
 		UseTilesetExtension: true
 
 arco:
 	idle: arco
+		Scale: 1.0
 	damaged-idle: arco
 		Start: 1
+		Scale: 1.0
 
 arco.husk:
 	idle: arco
 		Start: 1
+		Scale: 1.0

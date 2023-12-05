@@ -461,6 +461,52 @@
 			BlueTiberium: 70
 			Beach: 80
 			Water: 50
+	SubterraneanLocomotor@SUBTERRANEAN:
+		Name: subterranean
+		Crushes: wall, crate, infantry
+		TerrainSpeeds:
+			Clear: 100
+				PathingCost: 150
+			ClearGrass: 100
+				PathingCost: 150
+			ClearDesert: 100
+				PathingCost: 150
+			ClearRedDesert: 100
+				PathingCost: 150
+			ClearBarren: 100
+				PathingCost: 150
+			ClearSnow: 100
+				PathingCost: 150
+			ClearDune: 100
+				PathingCost: 150
+			ClearUrban: 100
+				PathingCost: 150
+			SandDune: 100
+				PathingCost: 150
+			TransitionDune: 100
+				PathingCost: 150
+			SpiceSand: 100
+				PathingCost: 150
+			Spice: 100
+				PathingCost: 150
+			SpiceBlobs: 100
+			ConcreteRoad: 125
+			Concrete: 125
+			Rough: 88
+				PathingCost: 150
+			RoughDune: 88
+				PathingCost: 150
+			Road: 125
+			Bridge: 125
+			Ford: 88
+			Ore: 88
+			Gems: 88
+			Tiberium: 88
+			BlueTiberium: 88
+			Beach: 88
+			Subterranean: 120
+		SubterraneanTransitionTerrainTypes: Clear, Rough, ClearGrass, ClearDesert, ClearRedDesert, ClearBarren, ClearSnow, ClearDune, ClearUrban, SandDune, TransitionDune, SpiceSand, Beach
+		SubterraneanTransitionCost: 150
 	TerrainRenderer:
 	ShroudRenderer:
 		FogVariants: shroud
@@ -476,7 +522,7 @@
 	ResourceRenderer:
 		ResourceTypes:
 			Ore:
-				Sequences: gold01, gold02, gold03, gold04
+				Sequences: gold01, gold02, gold03, gold04, gold01_alt, gold02_alt, gold03_alt, gold04_alt
 				Palette: player
 				Name: Valuable Minerals
 			Gems:
@@ -494,6 +540,9 @@
 
 World:
 	Inherits: ^BaseWorld
+	SubterraneanActorLayer:
+	JumpjetActorLayer:
+		HeightOffset: 1c256
 	TerrainLighting:
 	LuaScript:
 		Scripts: main.lua, commander_tree.lua, dropship.lua
